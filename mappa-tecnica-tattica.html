@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><title>Mappa di studio – Tecnica e Tattica</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--b:#2da44e;--c:#d4731a;--d:#c2397a;--e:#7a4bd6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--b:#4cc26b;--c:#f0993f;--d:#ee6fa8;--e:#a98bf0}}
+html{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:inherit}
+header{padding:16px 16px 4px}h1{font-size:1.25rem;margin:0}.sub{color:var(--mut);font-size:.85rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--bd)}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+nav button.on{background:var(--a);border-color:var(--a);color:#fff}
+main{padding:12px;max-width:760px;margin:0 auto}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;margin:0 0 10px;overflow:hidden}
+summary{padding:13px 14px;font-weight:600;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--mut);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+.n{flex:none;min-width:26px;height:26px;border-radius:13px;background:var(--k,var(--a));color:#fff;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.bd{padding:0 14px 14px}
+.bd h4{margin:12px 0 6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+ul{margin:4px 0;padding-left:18px}li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent);border:1px solid color-mix(in srgb,var(--k,var(--a)) 40%,transparent);border-radius:8px;padding:4px 9px;font-size:.85rem}
+.chip b{color:var(--k,var(--a))}
+.flow{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.flow div{background:color-mix(in srgb,var(--k,var(--a)) 12%,transparent);border-radius:8px;padding:8px 10px;font-size:.92rem}
+.flow div:not(:last-child)::after{content:"↓";display:block;text-align:center;color:var(--mut);margin-top:4px}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:380px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+th{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent)}
+.tip{background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.9rem}
+.map{display:grid;gap:10px}
+.map a{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--k);border-radius:12px;padding:12px 14px}
+.map b{color:var(--k);display:block;margin-bottom:4px}.map span{font-size:.88rem;color:var(--mut)}
+.fc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc button{font:inherit;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;min-height:86px}
+.fc button small{color:var(--mut);display:block}
+.fc button strong{display:none;color:var(--b);margin-top:4px}
+.fc button.on strong{display:block}.fc button.on{border-color:var(--b)}
+.hint{color:var(--mut);font-size:.85rem;margin:0 0 10px}
+@media(max-width:380px){.fc{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>⚽ Tecnica e Tattica</h1><div class="sub">Corso propedeutico FIGC · Modulo 4: dilettanti, settore giovanile, base, agonistica</div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="mappa" class="on">
+<p class="hint">Tocca un riquadro per saltare alla parte.</p>
+<div class="map">
+<a href="#a" style="--k:var(--a)"><b>A · Calcio dilettantistico adulto</b><span>Contesto, profilo del tecnico, ruoli, dal gruppo alla squadra, insidie (Camolese)</span></a>
+<a href="#b" style="--k:var(--b)"><b>B · Allenatore del settore giovanile</b><span>Adulti contro giovanili, mezzi, far crescere, cosa non fare, tutela (Ulivieri)</span></a>
+<a href="#c" style="--k:var(--d)"><b>C · Attività di base</b><span>Categorie, Ambiente, Formazione, Sviluppo del Talento (Milani)</span></a>
+<a href="#d" style="--k:var(--e)"><b>D · Attività agonistica</b><span>Competenze, Giovanissimi e Allievi, principi offensivi e difensivi, moduli (Sorbi)</span></a>
+<a href="#num" style="--k:var(--c)"><b>Flashcard e autoverifica</b><span>Parole chiave e domande delle check list</span></a>
+</div>
+<div class="tip" style="margin-top:12px">Idea guida del modulo: <b>adulti = la squadra, settore giovanile = ogni singolo ragazzo.</b></div>
+</section>
+
+<section id="a">
+<details style="--k:var(--a)" open><summary><span class="n">A1</span>Il contesto</summary><div class="bd">
+<p>Campo di lavoro: dalla <b>3ª Categoria alla Serie D</b>. Un metodo unico non esiste: cambia il contesto, cambia l’allenatore.</p>
+<div class="chips"><span class="chip"><b>Volontarietà</b></span><span class="chip"><b>Tempo limitato</b></span><span class="chip"><b>Eterogeneità</b></span><span class="chip"><b>Passione</b></span><span class="chip"><b>Risorse scarse</b></span></div>
+<ul><li>Il dilettante è un adulto con vita propria: gioca perché sceglie di esserci</li><li>Il tempo è la risorsa più scarsa: ogni minuto di allenamento vale doppio</li><li>Società snella: pochi dirigenti, tanti volontari, ruoli sovrapposti</li></ul>
+<div class="tip"><b>Caso «La rosa di lunedì»</b>: convochi 18, ne arrivano 9. Come imposti la seduta con numeri incerti e come comunichi che la presenza è un impegno senza perdere il gruppo?</div>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A2</span>Profilo del tecnico</summary><div class="bd">
+<p>Prima di tutto un <b>educatore</b>: il tuo esempio conta più delle parole.</p>
+<div class="tbl"><table><tr><th>Competenza</th><th>Contenuto</th></tr><tr><td>Tecnico-tattica</td><td>Leggere la partita, adattare il modello al materiale umano</td></tr><tr><td>Metodologica</td><td>Insegnare e programmare, obiettivi realistici</td></tr><tr><td><b>Relazionale</b></td><td>Comunicare, ascoltare, gestire conflitti</td></tr><tr><td><b>Personale</b></td><td>Equilibrio emotivo, coerenza, autocritica</td></tr></table></div>
+<p>Nel dilettantismo fanno la differenza la <b>relazionale</b> e la <b>personale</b>. Senza stipendio, la <b>credibilità</b> è la tua autorità.</p>
+<div class="tip"><b>Formula dell’autorevolezza</b>: competenza tecnica + capacità relazionale + coerenza personale.</div>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A3</span>I quattro ruoli</summary><div class="bd">
+<div class="tbl"><table><tr><th>Ruolo</th><th>Cosa fa</th></tr><tr><td><b>Tecnico</b></td><td>Idea di gioco riconoscibile, sedute con obiettivi chiari</td></tr><tr><td><b>Gestionale</b></td><td>Convocazioni, minutaggi, regole condivise, equilibrio titolari/riserve</td></tr><tr><td><b>Relazionale</b></td><td>Interfaccia con dirigenti, arbitri, pubblico; motivare senza stipendio</td></tr><tr><td><b>Istituzionale</b></td><td>Rappresenta la società; conosce regolamenti e tesseramenti di base</td></tr></table></div>
+<p>Il ruolo che ti mette a disagio è quello su cui devi lavorare di più.</p>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A4</span>Dal gruppo alla squadra</summary><div class="bd">
+<div class="flow"><div><b>Gruppo</b> = insieme di persone</div><div><b>Squadra</b> = obiettivo comune, regole e ruoli condivisi</div></div>
+<ul><li><b>Regole</b>: poche, chiare, condivise, valide per tutti; meglio costruirle con il gruppo. Le eccezioni le distruggono</li><li><b>Leader</b>: ogni gruppo ne ha di positivi e negativi; individuali presto e coinvolgi i positivi</li><li><b>Riserve</b>: il malcontento nasce dal minutaggio. Dai un ruolo e una prospettiva; la sincerità paga più delle promesse</li><li>Premia atteggiamento e impegno, non solo talento</li></ul>
+<div class="tip"><b>Spogliatoio spaccato</b> (giovani contro esperti): individua i leader, crea attività che li costringano a collaborare, affronta il tema apertamente.</div>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A5</span>Le insidie e i take-home</summary><div class="bd">
+<div class="chips"><span class="chip"><b>Presenze</b> e continuità: flessibilità</span><span class="chip"><b>Motivazione</b> e turnover</span><span class="chip"><b>Pressione</b> per il risultato</span><span class="chip"><b>Risorse</b> e strutture</span><span class="chip"><b>Ambiente</b> e conflitti</span></div>
+<ul><li>Il non detto è il vero nemico dello spogliatoio: conflitti subito e in privato</li><li><b>Dirigente in panchina</b>: definisci i confini in privato. <b>Mai contraddirsi davanti al gruppo</b></li></ul>
+<h4>5 take-home message</h4>
+<div class="chips"><span class="chip">Conosci il contesto</span><span class="chip">Credibilità = autorità</span><span class="chip">Più ruoli in uno</span><span class="chip">Costruisci la squadra</span><span class="chip">Anticipa le insidie</span></div>
+</div></details>
+</section>
+
+<section id="b">
+<details style="--k:var(--b)" open><summary><span class="n">B1</span>Adulti contro settore giovanile</summary><div class="bd">
+<div class="tbl"><table><tr><th></th><th>Allenatore degli adulti</th><th>Allenatore del settore giovanile</th></tr>
+<tr><td>Guarda</td><td>La <b>squadra</b></td><td>La crescita di <b>ogni giocatore</b></td></tr>
+<tr><td>Obiettivi</td><td>Spettacolo, risultato, miglioramento dei singoli</td><td>Miglioramento dei singoli: tecnico e morale, <b>tattico no</b></td></tr>
+<tr><td>Come lo chiamano</td><td>«Mister»</td><td>Per nome («Maestro» può andare)</td></tr></table></div>
+<div class="tip">Allenare i giovani con le caratteristiche dell’allenatore della prima squadra è un <b>errore gravissimo</b>. Se un calciatore vale 10 all’inizio, alla fine deve valere 12.</div>
+<p>Caratteristiche: sapere di calcio, <b>essere se stesso</b> (se finge, dopo tre giorni lo scoprono), sapere come si insegna, personalità, coraggio, coerenza.</p>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B2</span>I mezzi dell’allenamento</summary><div class="bd">
+<ul><li>Principalmente <b>la partita</b>: 2c2, 3c3, 4c4, 5c4, 5c6</li><li>Variabili per adattarla: dimensioni e forma del campo, numero di giocatori, numero di tocchi, gesti tecnici richiesti</li><li><b>Torello</b>: in movimento (si va dove va la palla). Un torello fermo non è gioco del calcio</li><li><b>Possesso palla</b>: mancano direzione di gioco (niente porte) e tiro in porta</li><li><b>Tiro in porta</b>: il gesto tecnico più importante, da allenare dal primo giorno, con la gioia del gol</li></ul>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B3</span>Far crescere i ragazzi</summary><div class="bd">
+<div class="chips"><span class="chip"><b>Errori di comportamento</b>: li corregge</span><span class="chip"><b>Errori di gioco</b>: di solito no, «riprova»</span></div>
+<ul><li><b>Far sentire poco la voce</b>: più parli e guidi, più sbagli. Il discorso tattico non si fa</li><li>Il grande giocatore <b>sa pensare</b> (Cruyff): cosa fare prima che arrivi la palla</li><li>Tecnica individuale: sì, anche analitica, in una parte limitata del tempo</li><li><b>Talento</b>: non si scopre né si allena, si <b>gestisce</b> (a 10 anni gioca con quelli di 13)</li><li><b>Coerenza non è trattare tutti uguale</b>: non c’è peggiore ingiustizia che trattare in modo uguale persone che non sono uguali</li><li>«Te che ne pensi?»: chiedi il parere a chi non parla mai</li><li>Alleni <b>cittadini</b>: in Serie A ne arriva uno ogni migliaia</li></ul>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B4</span>Cosa non fare, rispetto, tutela</summary><div class="bd">
+<ul><li><b>Schemi no</b>, libertà di espressione. «Giocano a memoria» = metodo da prima squadra</li><li><b>Rispetto rigidissimo</b>: per chi lavora (custode), per il luogo, per l’allenatore. Per ottenerlo, devi darlo</li><li>Vivi e vivaci: se vuoi ordine e disciplina, cambia mestiere. Se il rispetto viene meno, interrompi e spieghi in poche parole</li><li><b>Risultato</b>: la vittoria importa, un bambino gioca per vincere. Spiega il valore della vittoria e il significato della sconfitta</li><li><b>Genitori</b>: un incontro ogni 15 giorni</li></ul>
+<h4>Tutela dei minori</h4>
+<div class="tip">Se emergono segnali di abuso: chiama lo psicologo della società (o uno esterno). Non una denuncia, ma una <b>segnalazione</b> alle forze dell’ordine («Ho parlato con questo ragazzo e mi ha raccontato quanto segue», punto). Le indagini le fanno loro.</div>
+<ul><li>Nello spogliatoio <b>sempre in due adulti</b></li><li>Non portare a casa i ragazzi da soli in macchina (per abitudine, no)</li></ul>
+</div></details>
+</section>
+
+<section id="c">
+<details style="--k:var(--d)" open><summary><span class="n">C1</span>Missione e categorie</summary><div class="bd">
+<p>«Il bambino non è un piccolo adulto». Si valuta il percorso, non il risultato: il miglior allenatore è il tempo, parola chiave <b>PAZIENZA</b>.</p>
+<div class="tbl"><table><tr><th>Categoria</th><th>Età</th><th>Formula</th><th>Tratti</th></tr>
+<tr><td>Piccoli Amici U6-U7</td><td>5/6</td><td>2v2, 3v3</td><td>Egocentrismo normale, attenzione breve, niente schemi. Allenatore = figura affettiva</td></tr>
+<tr><td>Primi Calci U8-U9</td><td>6/8</td><td>4v4, 5v5</td><td>«Io e la palla», frustrazione dall’errore, tutti ruotano</td></tr>
+<tr><td>Pulcini U10-U11</td><td>8/10</td><td>7v7</td><td>«Impariamo a collaborare», interesse competitivo, spiegazioni brevi</td></tr>
+<tr><td>Esordienti U12-U13</td><td>10/12</td><td>9v9</td><td>Capacità critica, tattica individuale, possibili difficoltà motorie</td></tr></table></div>
+<div class="tip">Se devi spiegare una cosa, fagliela vedere: la dimostrazione batte la spiegazione.</div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C2</span>I tre pilastri (33% ciascuno)</summary><div class="bd">
+<div class="flow"><div><b>1. Ambiente</b>: crea il contesto, è il primo atto formativo</div><div><b>2. Formazione</b>: forma tutte le persone che lavorano con i ragazzi</div><div><b>3. Sviluppo del Talento</b>: ricerca delle abilità individuali</div></div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C3</span>Ambiente</summary><div class="bd">
+<ul><li>Strutture in ordine, famiglie coinvolte, staff con valori solidi, identità e DNA del club</li><li>Pochi obiettivi chiari e raggiungibili; pianificazione, non improvvisazione</li><li><b>Progettualità 5+5</b>: 5 anni di costruzione + 5 di perfezionamento. Continuità = parola chiave</li><li>Prendere spunti è intelligente, copiare non ha prospettiva</li></ul>
+<h4>Genitori: tre momenti</h4>
+<div class="chips"><span class="chip"><b>Inizio</b>: staff, obiettivi, poche regole</span><span class="chip"><b>Metà</b>: tema con lo psicologo, feedback</span><span class="chip"><b>Fine</b>: risultati del percorso, estate</span></div>
+<p>I dirigenti accompagnatori sono «alleggeritori di zaini»: diritto all’errore ai ragazzi, «per e mai contro» lo staff, tifo positivo con i genitori.</p>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C4</span>Formazione e sviluppo motorio</summary><div class="bd">
+<div class="chips"><span class="chip">Generazione Z <b>1997-2012</b></span><span class="chip">Generazione Alpha <b>2013 in poi</b> («Screenagers»)</span></div>
+<ul><li>Obiettivi ADB: identità riconoscibile, più ragazzi verso l’agonistica, conoscenza del territorio, capacità coordinative</li><li>Dal <b>singolo alla squadra</b>: non analizzare il singolo dentro la squadra, evidenzia le caratteristiche positive; l’errore è normale</li><li>Non il ruolo migliore per la squadra ma per lo sviluppo del singolo: più posizioni prova, più esperienze</li><li><b>Fasi sensibili</b> (Martin, 1982): coordinativa a <b>6-12 anni</b>: «è ORA o difficilmente dopo»</li><li><b>Proceritas</b> (U12-U13): calo coordinativo temporaneo e fisiologico, non allarmarsi</li><li>Piramide: <b>tecnica → tattica individuale → tattica collettiva</b></li></ul>
+<div class="tip">«Come mi alleno, gioco – come voglio giocare, mi alleno». Il <b>calcio di strada</b> è «il miglior allenatore che abbiamo perso»: ripetizioni naturali, 1v1 costante, autonomia e creatività.</div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C5</span>Sviluppo del talento</summary><div class="bd">
+<ul><li><b>Talento (Gagné, 1993)</b>: usare capacità sviluppate sistematicamente a un livello che colloca nel <b>10% migliore</b></li><li>Tre fattori, ma solo due influenzabili: <b>genetica</b> (no), <b>ambiente</b>, <b>pratica</b></li><li><b>RAE</b> (Relative Age Effect): si valorizzano i nati nei primi mesi dell’anno; i nati a fine anno scartati per maturazione più lenta, non per talento</li></ul>
+<h4>4 macro aree di osservazione</h4>
+<div class="chips"><span class="chip"><b>Caratteriale</b></span><span class="chip"><b>Tecnica</b></span><span class="chip"><b>Fisico-atletica</b></span><span class="chip"><b>Cognitiva</b></span></div>
+<ul><li>Focus tecnico: <b>Controllo</b> (passato, allenabile), <b>Conduzione</b> (presente, personalità), <b>Passaggio</b> (futuro, intelligenza)</li><li>Valuta il potenziale, non la prestazione attuale</li></ul>
+<div class="tbl"><table><tr><th>«Usa la matita, non la penna»</th><th></th></tr><tr><td><b>Scrivi</b></td><td>Caratteristiche predominanti, picchi positivi, margini di miglioramento, personalità, reazione all’errore</td></tr><tr><td><b>Non scrivere</b></td><td>Ciò che manca, confronti con altri, giudizi definitivi, giudizi sulla singola partita, etichette di ruolo, «non potrà mai…»</td></tr></table></div>
+<div class="tip">Il protagonista è il ragazzo, non l’allenatore. La vittoria è un risultato. La crescita è il traguardo.</div>
+</div></details>
+</section>
+
+<section id="d">
+<details style="--k:var(--e)" open><summary><span class="n">D1</span>Il gioco e le competenze</summary><div class="bd">
+<ul><li>Il calcio è sport di squadra e <b>sport di situazione</b>: altissima incertezza</li><li>Gioco complesso, 4 componenti inseparabili: <b>tattica, tecnica, fisico-atletica, psicologico-comportamentale</b></li></ul>
+<h4>4 competenze dell’allenatore giovanile</h4>
+<div class="tbl"><table><tr><th>Competenza</th><th>Punti chiave</th></tr>
+<tr><td><b>Tecnica</b></td><td>Conoscere il gesto (come, dove, quando, a chi); le abilità si acquisiscono solo nell’espressione situazionale; si costruisce in almeno 10 anni</td></tr>
+<tr><td><b>Metodologica</b></td><td>Metodo <b>situazionale (globale)</b> + <b>analitico</b>, complementari. Principi di gioco, non schemi. Obiettivi dichiarati, un errore alla volta, stili partecipativi e direttivi</td></tr>
+<tr><td><b>Organizzativa</b></td><td>Densità del lavoro, pochi tempi morti, puntualità, campo pronto, rotazione dei ruoli</td></tr>
+<tr><td><b>Relazionale</b></td><td>Clima di rispetto, rinforzo positivo, nessuno escluso, stile autorevole</td></tr></table></div>
+<div class="chips"><span class="chip"><b>Autorevole</b> (regole + relazione) ✔</span><span class="chip"><b>Autoritario</b> ✘</span><span class="chip"><b>Permissivo</b> ✘</span></div>
+<ul><li>Disciplina: poche regole condivise, richiami in privato, niente umiliazioni, sanzioni graduali</li><li>Leadership = triangolo <b>allenatore – ragazzi – obiettivo</b></li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D2</span>Giovanissimi e Allievi</summary><div class="bd">
+<div class="tbl"><table><tr><th></th><th>Giovanissimi (12-15)</th><th>Allievi (15-17)</th></tr>
+<tr><td>Obiettivo primario</td><td><b>Saper giocare</b></td><td><b>Giocare per vincere</b></td></tr>
+<tr><td>Contenuti</td><td>Situazioni complesse, collaborazione, decisioni, regole</td><td>Partite a temi complesse, autonomia gestionale, rispetto assoluto delle regole</td></tr>
+<tr><td>Tattica</td><td>Individuale e di reparto, semplici schemi senza esasperazioni</td><td>Tutti gli sviluppi: coperture, scalate, diagonali, pressing, fuorigioco; zona, uomo, misto</td></tr>
+<tr><td>Superiorità numerica</td><td>Parità, soprannumero, sottonumero</td><td>Gestione efficace (2v1, 1v2, 2v2, 3v3)</td></tr></table></div>
+<ul><li>Nella base prevalgono contenuti tattico-tecnico-coordinativi; nell’agonistica cresce la tattica individuale e collettiva</li><li>La <b>tattica individuale</b> è il punto fondamentale e la base della tattica collettiva</li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D3</span>Principi offensivi (possesso)</summary><div class="bd">
+<ul><li>I principi nascono dall’osservazione del <b>gioco spontaneo</b> dei ragazzi</li></ul>
+<div class="tbl"><table><tr><th>Se…</th><th>I ragazzi…</th></tr><tr><td>Sono liberi</td><td>Conducono in avanti</td></tr><tr><td>Sono affrontati</td><td>Dribbling o passaggio avanti</td></tr><tr><td>Giocano avanti e riprendono</td><td>Triangolazione</td></tr><tr><td>Sono marcati</td><td>Si smarcano in profondità</td></tr><tr><td>Sono pressati</td><td>Retropassaggio o al portiere</td></tr><tr><td>Devono riconquistare</td><td>Pressione aggressiva</td></tr></table></div>
+<div class="tip"><b>Supporto al possessore</b>: un vertice davanti, un <b>sostegno dietro</b> e uno o due <b>appoggi laterali</b> (sotto la linea della palla).</div>
+<ul><li>Occupare spazi utili, più linee di passaggio, <b>ampiezza</b> e <b>verticalizzazione</b></li><li><b>Smarcamento</b>: taglio davanti o dietro all’avversario; chi ha giocato la palla deve muoversi</li><li><b>Conduzione</b>: senza avversari conviene condurre; con avversario per dribbling, passaggio o triangolazione</li><li><b>Triangolazione</b> (uno-due) con il sostegno (scarico)</li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D4</span>Principi difensivi (non possesso)</summary><div class="bd">
+<div class="chips"><span class="chip">Difesa su <b>più linee</b></span><span class="chip">Concentrazione <b>sulla palla</b></span></div>
+<div class="tbl"><table><tr><th>Sviluppo</th><th>Significato</th></tr><tr><td><b>Marcamento</b> (anticipo)</td><td>Su un avversario senza palla, possibile ricevente</td></tr><tr><td><b>Duello</b> (contrasto)</td><td>Su un avversario in possesso</td></tr><tr><td><b>Copertura</b> (intercetto)</td><td>Di un duello (raddoppio), di una linea di passaggio, di una marcatura, di un tiro</td></tr><tr><td><b>Azione di ritardo</b></td><td>Avanzando (<b>pressing</b>) o arretrando (<b>difesa della porta</b>)</td></tr></table></div>
+<div class="tip">La Scuola Allenatori FIGC predilige la <b>marcatura uomo contro uomo</b>: in questa fascia d’età stimola abilità difensive e offensive. Non si usano scalate e coperture di reparto.</div>
+<h4>Modelli tattici (a 11)</h4>
+<div class="chips"><span class="chip">P-3-rombo-3</span><span class="chip">P-4-3-3</span><span class="chip">P-4-2-3-1</span><span class="chip">P-3-5-2</span></div>
+<ul><li>Privilegiare i modelli con più <b>duelli</b>, usare ampiezza e verticalizzazione</li><li>L’organizzazione può mascherare carenze; le soluzioni personali fanno crescere</li><li><b>Fornire problemi da risolvere, non soluzioni da ricordare</b></li></ul>
+</div></details>
+</section>
+
+<section id="num">
+<p class="hint">Tocca una carta per vedere la risposta. Le ultime sono le domande delle check list.</p>
+<div class="fc" id="fc"></div>
+</section>
+</main>
+<script>
+var S=[["mappa","Mappa"],["a","A Dilettanti"],["b","B Giovanile"],["c","C Base"],["d","D Agonistica"],["num","Flashcard"]];
+var nav=document.getElementById("nav");
+S.forEach(function(s){var b=document.createElement("button");b.textContent=s[1];b.dataset.k=s[0];b.onclick=function(){location.hash=s[0]};nav.appendChild(b)});
+function show(){var h=(location.hash||"#mappa").slice(1);if(!document.getElementById(h))h="mappa";
+S.forEach(function(s){document.getElementById(s[0]).classList.toggle("on",s[0]===h)});
+nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===h)});window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+var Q=[["Dilettanti adulti: 5 parole chiave","Volontarietà, tempo limitato, eterogeneità, passione, risorse scarse"],["Formula dell’autorevolezza","Competenza tecnica + capacità relazionale + coerenza personale"],["Quattro competenze del tecnico dilettante","Tecnico-tattica, metodologica, relazionale, personale"],["Quattro ruoli del tecnico dilettante","Tecnico, gestionale, relazionale, istituzionale"],["Differenza tra gruppo e squadra","Squadra = obiettivo comune, regole e ruoli condivisi"],["Dirigente che critica le tue scelte","Confini in privato, mai contraddirsi davanti al gruppo"],["Adulti contro settore giovanile","Adulti = la squadra · giovanile = ogni singolo"],["Perché nel giovanile non si usa «mister»?","Ti chiamano per nome: guardi la crescita di ogni ragazzo"],["Cosa corregge l’allenatore giovanile?","Errori di comportamento. Quelli di gioco di solito no («riprova»)"],["Coerenza non è…","Trattare tutti uguale: l’ingiustizia peggiore è trattare in modo uguale persone diverse"],["Segnalazione o denuncia?","Segnalazione alle forze dell’ordine (racconto dei fatti), le indagini le fanno loro"],["Tutela nello spogliatoio","Sempre due adulti; mai a casa da soli in macchina"],["Incontro con i genitori","Ogni 15 giorni"],["Gesto tecnico più importante","Il tiro in porta, dal primo giorno"],["Tre pilastri dell’attività di base","Ambiente, Formazione, Sviluppo del Talento (33% ciascuno)"],["Categorie ADB: U6-7 · U8-9 · U10-11 · U12-13","5/6 · 6/8 · 8/10 · 10/12 anni"],["Formule: Piccoli Amici · Primi Calci · Pulcini · Esordienti","2v2/3v3 · 4v4/5v5 · 7v7 · 9v9"],["Fase sensibile coordinativa","6-12 anni"],["Proceritas","U12-U13: calo coordinativo temporaneo e fisiologico"],["Progettualità del club","5+5 anni"],["Generazione Z · Alpha","1997-2012 · 2013 in poi"],["Talento secondo Gagné","Abilità che colloca nel 10% migliore"],["Che cos’è il RAE?","Si valorizzano i nati nei primi mesi dell’anno"],["4 macro aree di osservazione","Caratteriale, tecnica, fisico-atletica, cognitiva"],["Usare la matita, non la penna","Scrivi picchi e margini; niente giudizi definitivi né etichette"],["Piramide di formazione","Tecnica → tattica individuale → tattica collettiva"],["Obiettivo primario: Giovanissimi · Allievi","Saper giocare · giocare per vincere"],["Supporto al possessore","Vertice davanti + sostegno dietro + 1-2 appoggi laterali"],["Marcatura prediletta dalla Scuola Allenatori FIGC","Uomo contro uomo"],["Metodi di allenamento","Situazionale (globale) + analitico, complementari"],["Stile dell’allenatore","Autorevole (regole + relazione), non autoritario né permissivo"],["L’allenatore deve fornire","Problemi da risolvere, non soluzioni da ricordare"]];
+var fc=document.getElementById("fc");
+Q.forEach(function(q){var b=document.createElement("button");var s=document.createElement("small");s.textContent=q[0];var t=document.createElement("strong");t.textContent=q[1];b.appendChild(s);b.appendChild(t);b.onclick=function(){b.classList.toggle("on")};fc.appendChild(b)});
+</script>
+<script src="tts.js"></script></body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><title>Mappa di studio – Carte Federali FIGC</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--b:#2da44e;--c:#d4731a;--d:#c2397a;--e:#7a4bd6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--b:#4cc26b;--c:#f0993f;--d:#ee6fa8;--e:#a98bf0}}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:inherit}
+header{padding:16px 16px 4px}
+h1{font-size:1.25rem;margin:0}
+.sub{color:var(--mut);font-size:.85rem;margin-top:2px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--bd)}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+nav button.on{background:var(--a);border-color:var(--a);color:#fff}
+main{padding:12px;max-width:760px;margin:0 auto}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;margin:0 0 10px;overflow:hidden}
+summary{padding:13px 14px;font-weight:600;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--mut);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+.n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--k,var(--a));color:#fff;display:grid;place-items:center;font-size:.8rem}
+.bd{padding:0 14px 14px}
+.bd h4{margin:12px 0 6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+ul{margin:4px 0;padding-left:18px}li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent);border:1px solid color-mix(in srgb,var(--k,var(--a)) 40%,transparent);border-radius:8px;padding:4px 9px;font-size:.85rem}
+.chip b{color:var(--k,var(--a))}
+.flow{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.flow div{background:color-mix(in srgb,var(--k,var(--a)) 12%,transparent);border-radius:8px;padding:8px 10px;font-size:.92rem}
+.flow div:not(:last-child)::after{content:"↓";display:block;text-align:center;color:var(--mut);margin-top:4px}
+.bar{display:grid;grid-template-columns:70px 1fr 38px;gap:8px;align-items:center;margin:5px 0;font-size:.85rem}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--k,var(--a))}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:420px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+th{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent)}
+.tip{background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.9rem}
+.map{display:grid;gap:10px}
+.map a{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--k);border-radius:12px;padding:12px 14px}
+.map b{color:var(--k);display:block;margin-bottom:4px}
+.map span{font-size:.88rem;color:var(--mut)}
+.fc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc button{font:inherit;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;min-height:86px}
+.fc button small{color:var(--mut);display:block}
+.fc button strong{display:none;color:var(--b);margin-top:4px}
+.fc button.on strong{display:block}
+.fc button.on{border-color:var(--b)}
+.hint{color:var(--mut);font-size:.85rem;margin:0 0 10px}
+@media(max-width:380px){.fc{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>⚽ Corso propedeutico FIGC</h1><div class="sub">Mappa di studio visiva · Carte Federali + C.U. n.1 SGS 2026/27</div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="mappa" class="on">
+<p class="hint">Tocca un riquadro per saltare alla parte. Ordine di studio consigliato: A → B → Numeri → Dubbi.</p>
+<div class="map">
+<a href="#a" style="--k:var(--a)"><b>PARTE A · Carte Federali</b><span>FIGC e organi · Statuto/NOIF/CGS · Regolamento ST · Albo e Ruoli · Tesseramento · Rapporti economici</span></a>
+<a href="#b" style="--k:var(--b)"><b>PARTE B · C.U. n.1 SGS</b><span>Tutela minori · Attività di base · Agonistica · Femminile e C5 · Territorio, tornei, norme</span></a>
+<a href="#num" style="--k:var(--c)"><b>PARTE C · Numeri e date</b><span>Flashcard: tocca per scoprire la risposta</span></a>
+<a href="#dubbi" style="--k:var(--d)"><b>Attenzione</b><span>Incongruenze nelle slide da chiarire col docente</span></a>
+</div>
+<details style="--k:var(--e);margin-top:12px" open><summary>Perché studiare le Carte Federali</summary><div class="bd"><ul><li>Esercitare meglio l’attività di allenatore (ruolo che cambia)</li><li>Conoscere diritti e doveri</li><li>Porre le basi per carriere diverse nel calcio</li></ul></div></details>
+</section>
+
+<section id="a">
+<details style="--k:var(--a)" open><summary><span class="n">1</span>Organizzazione FIGC</summary><div class="bd">
+<div class="chips"><span class="chip">Sede <b>Roma</b></span><span class="chip">Privata, federata al <b>CONI</b></span><span class="chip">Unica riconosciuta da <b>CONI, UEFA, FIFA</b></span></div>
+<h4>Gerarchia delle fonti (art. 2)</h4>
+<div class="flow"><div><b>1.</b> Statuto federale</div><div><b>2.</b> NOIF, Codice di Giustizia Sportiva, disposizioni del Consiglio Federale</div><div><b>3.</b> Statuti e regolamenti di Leghe, AIA, Settore Tecnico, SGS, Div. Paralimpico</div></div>
+<h4>7 organi (art. 5)</h4>
+<div class="chips"><span class="chip">Assemblea</span><span class="chip">Presidente</span><span class="chip">Vice-Presidenti</span><span class="chip">Comitato di presidenza</span><span class="chip">Consiglio federale</span><span class="chip">Segretario Generale</span><span class="chip">Collegio revisori</span></div>
+<h4>Assemblea: 273 delegati, presidente eletto ogni 4 anni</h4>
+<div class="bar"><span>LND</span><i style="width:34%"></i><b>34%</b></div>
+<div class="bar"><span>AIC</span><i style="width:20%"></i><b>20%</b></div>
+<div class="bar"><span>Serie A</span><i style="width:18%"></i><b>18%</b></div>
+<div class="bar"><span>Lega Pro</span><i style="width:12%"></i><b>12%</b></div>
+<div class="bar"><span>AIAC</span><i style="width:10%"></i><b>10%</b></div>
+<div class="bar"><span>Serie B</span><i style="width:6%"></i><b>6%</b></div>
+<div class="tbl"><table><tr><th>Componente</th><th>Delegati</th><th>Consiglieri</th></tr><tr><td>Serie A</td><td>20</td><td>3</td></tr><tr><td>Serie B</td><td>20</td><td>1</td></tr><tr><td>Lega Pro</td><td>56</td><td>3</td></tr><tr><td>LND</td><td>99</td><td>6</td></tr><tr><td>AIC</td><td>52</td><td>4</td></tr><tr><td>AIAC</td><td>26</td><td>2</td></tr></table></div>
+<h4>Settori e Divisioni</h4>
+<ul><li><b>SGS</b>: giovani 5-16 anni · base 5-12, agonistica 12-16, scolastica</li><li><b>Settore Tecnico</b>: organo di servizio (art. 14), qualificazione dei tecnici</li><li><b>Calcio a 5</b>: gestione alla LND dal 1989</li><li><b>Div. Calcio Paralimpico</b>: istituita il 3 ottobre 2019</li><li><b>Femminile</b>: dal 2023-24 Serie A Femminile pro e Serie B Femminile separate</li></ul>
+</div></details>
+
+<details style="--k:var(--a)"><summary><span class="n">2</span>Statuto, NOIF, Giustizia Sportiva</summary><div class="bd">
+<div class="chips"><span class="chip">NOIF <b>118</b> art.</span><span class="chip">CGS <b>142</b> art.</span><span class="chip">Reg. ST <b>56</b> art.</span></div>
+<h4>Articoli dello Statuto da ricordare</h4>
+<ul><li>1 natura · 2 fonti · 5 organi · 8 licenze campionati</li><li>14 Settore Tecnico · 15 SGS · 16 affiliazione e tesseramento · 17 tutela medico-sportiva</li><li>19 controlli (Covisoc) · 30 vincolo di giustizia e clausola compromissoria</li></ul>
+<h4>Codice di Giustizia Sportiva</h4>
+<ul><li><b>Art. 4</b>: l’ignoranza delle norme non è esimente; lealtà, correttezza, probità; i C.U. si considerano conosciuti dalla pubblicazione</li><li><b>Art. 5</b>: il capitano risponde della violenza su ufficiali di gara di un compagno non individuato</li><li><b>Art. 6</b> responsabilità società: <b>diretta</b>, <b>oggettiva</b>, <b>presunta</b>. Esimente: modello di organizzazione</li></ul>
+<div class="tip">NOIF art. 66: persone ammesse nel recinto di gioco. NOIF art. 43: tutela medico-sportiva.</div>
+</div></details>
+
+<details style="--k:var(--a)"><summary><span class="n">3</span>Regolamento del Settore Tecnico</summary><div class="bd">
+<div class="tbl"><table><tr><th>Parte</th><th>Articoli</th><th>Tema</th></tr><tr><td>I</td><td>1-15</td><td>Attribuzioni, struttura</td></tr><tr><td>II</td><td>16-40</td><td>Qualificazione e disciplina tecnici</td></tr><tr><td>III</td><td>41-53</td><td>Sezione Medica</td></tr><tr><td>IV</td><td>54-56</td><td>Altre figure tecnico-sportive</td></tr></table></div>
+<h4>Organi (art. 2)</h4>
+<div class="chips"><span class="chip">Presidente</span><span class="chip">3 Vicepresidenti</span><span class="chip">Consiglio Direttivo</span><span class="chip">Comitato Esecutivo</span><span class="chip">Commissione Disciplinare</span></div>
+<h4>Qualifiche (art. 16)</h4>
+<ul><li>UEFA Pro, A, B, C, Licenza D, Responsabile Settore Giovanile, UEFA GK</li><li>C5, Beach Soccer, Paralimpico</li><li>UEFA B = UEFA C + Licenza D (si tornerà al corso UEFA B dopo UEFA C e 6 mesi di tesseramento)</li></ul>
+<h4>Aggiornamento (art. 34)</h4>
+<ul><li>Coaching Convention: <b>15 ore nel triennio</b>, pena perdita di validità. Da aprile 2026 il ST può farle annuali</li></ul>
+<h4>Obblighi di tecnici in panchina</h4>
+<ul><li>Attività agonistica SGS: allenatore abilitato ST</li><li>Attività di base: Responsabile Tecnico + un allenatore qualificato per ogni categoria</li><li>Allenatore dei portieri: obbligatorio dal 2019-20 in A, B, C; dal 2020-21 in D</li></ul>
+<h4>Art. 41: preclusioni</h4>
+<ul><li>Un solo club per stagione (con deroghe)</li><li>Divieto di attività sul trasferimento dei calciatori</li></ul>
+</div></details>
+
+<details style="--k:var(--c)"><summary><span class="n">4</span>Albo e Ruoli</summary><div class="bd">
+<p>Quota annuale obbligatoria: al tesseramento o entro il <b>30 settembre</b>. Il mancato versamento <b>non</b> è illecito disciplinare.</p>
+<div class="tbl"><table><tr><th>Ruolo</th><th>Quando</th><th>Rientro</th></tr>
+<tr><td>Attivi</td><td>In regola con quota e aggiornamenti</td><td>–</td></tr>
+<tr><td>Sospesi volontari</td><td>Su richiesta (motivi gravi o altra mansione)</td><td>Su richiesta</td></tr>
+<tr><td>Sospesi per morosità</td><td>2 annualità non pagate</td><td>Automatico pagando gli arretrati</td></tr>
+<tr><td>Inattivi</td><td>3 annualità o licenza scaduta da oltre 6 mesi (dopo 60 giorni per regolarizzare)</td><td>Fino a 3 stagioni: arretrati/aggiornamenti. Oltre 3: anche esame orale al ST</td></tr></table></div>
+<div class="tip">Cancellazione su richiesta: per rientrare serve una nuova abilitazione.</div>
+</div></details>
+
+<details style="--k:var(--c)"><summary><span class="n">5</span>Tesseramento e accesso al campo</summary><div class="bd">
+<div class="chips"><span class="chip"><b>Obbligatorietà</b></span><span class="chip"><b>Annualità</b></span><span class="chip"><b>Unicità</b></span></div>
+<h4>Regola</h4><p>Nella stessa stagione un tecnico non può tesserarsi né operare per più di una società.</p>
+<h4>Deroghe principali</h4>
+<ul><li>Serie A/B: secondo tesseramento come responsabile prima squadra (previa risoluzione, autorizzazione ST)</li><li>Accordi collettivi o protocolli · esclusione della squadra · trasferimento all’estero</li><li>Preparatori atletici, medici sociali, operatori sanitari dopo risoluzione</li><li>Match Analyst e Osservatori · Beach Soccer · sostituto dell’allenatrice in maternità</li></ul>
+<div class="tip"><b>Protocollo esonerati (C.U. 25)</b>: l’esonerato LND o «puro settore» può tesserarsi per un’altra società FIGC se il campionato/girone è diverso. Non vale per l’attività giovanile di base. Massimo <b>2 società FIGC</b> nella stessa stagione.</div>
+<h4>Art. 66 NOIF</h4>
+<ul><li>Serie A, B, Lega Pro, A Femminile: allenatore tesserato e abilitato obbligatorio. Se manca: gara persa <b>0-3</b> (0-6 nel C5), <b>+1 punto</b> di penalizzazione</li><li>Nel recinto: tecnico responsabile + eventuale allenatore in seconda (con autorizzazione ST)</li><li>LND e giovanili: fino a <b>2 posti extra</b> per allenatore dei portieri e preparatore atletico abilitati</li></ul>
+</div></details>
+
+<details style="--k:var(--d)"><summary><span class="n">6</span>Rapporti economici tecnici-società</summary><div class="bd">
+<h4>Tre inquadramenti</h4>
+<div class="chips"><span class="chip"><b>A</b> Subordinato</span><span class="chip"><b>B</b> Autonomo / co.co.co.</span><span class="chip"><b>C</b> Volontario</span></div>
+<h4>Soglie del lavoro sportivo (dilettanti)</h4>
+<div class="flow"><div><b>fino a 5.000 €</b>: esenzione totale fiscale e contributiva</div><div><b>5.000 – 15.000 €</b>: esenzione IRPEF, restano i contributi INPS</div><div><b>oltre 15.000 €</b>: IRPEF e contributi + prospetto paga obbligatorio</div></div>
+<ul><li>Registro nazionale: comunicare i rapporti sopra 5.000 €</li><li>Premi ai tesserati dilettanti: ritenuta <b>20%</b></li></ul>
+<h4>Volontari</h4>
+<ul><li>Solo rimborsi di vitto, alloggio, viaggio, trasporto fuori dal comune di residenza</li><li>Autocertificazione fino a <b>400 € al mese</b></li><li>Gli enti assicurano i volontari per la RC verso terzi</li></ul>
+<h4>Co.co.co. (Accordo FIGC-LND-AIAC)</h4>
+<ul><li>Contratto tipo, durata <b>1-5 anni</b></li><li>Parte fissa minima <b>150 €/mese</b>; premi fino al <b>100%</b> della parte fissa</li><li>Mansioni, squadra e numero di allenamenti vanno indicati; cambio solo per accordo scritto</li><li>Controversie: Collegio Arbitrale presso la LND (Roma)</li><li>Con minori: certificato del casellario, trasmesso via PEC <b>entro 10 giorni</b>. Se emergono condanne il contratto è risolto ex tunc</li></ul>
+<h4>Dipendenti pubblici e disoccupazione</h4>
+<ul><li>Dipendenti pubblici: fuori orario con comunicazione; co.co.co. fino a 5.000 € solo comunicazione, oltre serve autorizzazione</li><li>DIS-COLL: domanda entro <b>68 giorni</b>, max <b>12 mesi</b></li><li>Maternità (calcio femminile pro): l’allenatrice decide inizio e fine del congedo e al rientro ha diritto alle sue mansioni</li></ul>
+</div></details>
+</section>
+
+<section id="b">
+<details style="--k:var(--b)" open><summary><span class="n">1</span>Visione SGS e tutela minori</summary><div class="bd">
+<div class="tip"><b>La performance viene dopo la tutela.</b> Il club è una comunità educativa.</div>
+<ul><li>Tesseramento fino a 16 anni; attività regolamentate fino a Under 17</li><li>Carta dei Diritti del Ragazzo: 10 diritti, tra cui il <b>diritto di non essere un campione</b></li><li>UEFA Grassroots Charter firmata il <b>24 marzo 2009</b>, 6 requisiti minimi</li><li>4 priorità: Players, Environment, Game, Workforce</li><li>Modello educativo: Tecnica, Organizzazione, Relazioni · Progetto «Genitori+»</li></ul>
+<h4>Safeguarding</h4>
+<ul><li>Regolamento: C.U. 68/A del 27.08.2024 · segnalazioni su safeguarding.figc.it</li><li>Autovalutazione rischi in 5 passi: <b>Misurare, Identificare, Disegnare, Coinvolgere, Monitorare</b></li><li><b>Delegato Tutela e Benessere Minori</b>: obbligatorio dal <b>3° livello</b> del Sistema Qualità</li><li>E-learning in 6 percorsi; il «Introduttivo» è obbligatorio per tutti i collaboratori</li></ul>
+<h4>Censimento online</h4>
+<div class="chips"><span class="chip">31/10 · club 2° e 3° livello</span><span class="chip">31/12 · club 1° livello</span><span class="chip">Ammenda max <b>500 €</b></span></div>
+</div></details>
+
+<details style="--k:var(--b)"><summary><span class="n">2</span>Attività di base (stagione 2026-27)</summary><div class="bd">
+<div class="tbl"><table><tr><th>Categoria</th><th>Annate</th><th>Gioco</th></tr>
+<tr><td>Piccoli Amici</td><td>2020-21</td><td>2c2, 3c3</td></tr>
+<tr><td>Primi Calci</td><td>2018-19</td><td>4c4, 5c5</td></tr>
+<tr><td>Pulcini</td><td>2016-17 (2° anno 2016)</td><td>5c5/7c7 · 2° anno 7c7</td></tr>
+<tr><td>Esordienti</td><td>2014-15 (2° anno 2014)</td><td>7c7/9c9 · 2° anno 9c9</td></tr></table></div>
+<ul><li>Formula: raggruppamento 3-4 squadre, Proposte Pre-Gara, Multipartita, 4° Tempo</li><li>Tornei di almeno <b>6 mesi</b>; vietato lo stesso giocatore in 2 gare di torneo nella stessa giornata</li><li><b>Vietati</b> provini e raduni selettivi sotto i 12 anni</li><li>Bambine: deroga alla fascia inferiore (automatica per Piccoli Amici e Primi Calci)</li></ul>
+<h4>Arbitraggio</h4>
+<ul><li>Pulcini: autoarbitraggio; Esordienti: tecnici o dirigenti istruiti</li><li>Dirigente-arbitro: almeno <b>15 anni</b>, ospitante designa, referto firmato da entrambi</li><li>Arbitri AIA solo per Esordienti 2° anno 9c9</li><li>Green Card: premia fair play (Pulcini ed Esordienti)</li></ul>
+<h4>5 messaggi</h4><div class="chips"><span class="chip">Prima il bambino</span><span class="chip">Il gioco è didattica</span><span class="chip">La qualità è organizzazione</span><span class="chip">Il fair play si educa</span><span class="chip">No selezioni precoci</span></div>
+</div></details>
+
+<details style="--k:var(--b)"><summary><span class="n">3</span>Attività agonistica</summary><div class="bd">
+<div class="tbl"><table><tr><th>Categoria</th><th>Annate</th></tr><tr><td>Under 14</td><td>2013 (max 5 nati 2014 dopo il 12° anno)</td></tr><tr><td>Under 15</td><td>2012-2013 (max 5 nati 2014 dopo il 12° anno)</td></tr><tr><td>Under 16</td><td>2011 (+2012-13 dopo il 14° anno)</td></tr><tr><td>Under 17</td><td>2010-2011</td></tr></table></div>
+<ul><li>Ogni squadra con allenatore abilitato ST, tesserato e comunicato entro l’inizio del campionato</li><li>Completamento organico: richiesta entro il <b>30 novembre 2026</b>, società con almeno 5 nati 2012/2013</li><li>Classifica disciplina: obbligatoria in U14-U17. Oltre <b>100 punti</b> = non ammissione o esclusione dai campionati regionali</li><li>Tornei post-campionato: richiesta al Consiglio Direttivo SGS entro il 31 dicembre</li></ul>
+<h4>Raduni e provini</h4>
+<ul><li>Raduni: da 12 anni compiuti fino al limite Allievi, solo stessa regione o provincia limitrofa, richiesta al CR almeno <b>15 giorni</b> prima</li><li>Provini sotto i 16 anni: autorizzazione SGS via PEC; tra 12 e 16 anni nulla osta della società</li><li>Comunicare ogni prova entro 24 ore · dal 2027/28 serve il club di 3° livello</li></ul>
+</div></details>
+
+<details style="--k:var(--b)"><summary><span class="n">4</span>Calcio femminile e calcio a 5</summary><div class="bd">
+<div class="flow"><div>U12</div><div>U15</div><div>U17</div><div>Calcio+15 → Calcio+17 → Club Italia / Nazionali giovanili</div></div>
+<ul><li>U12 femminile: nate 2014-15, 8c8 · U15: nate 2012-13, 9c9 · U17: nate 2010-11, 11c11</li><li>Tecnico qualificato UEFA, tesserato prima dell’inizio</li><li>C5: Piccoli Amici 2c2-3c3, Primi Calci 4c4-5c5, Pulcini ed Esordienti 5c5. Tecnico: Allenatore C5, UEFA Futsal B o istruttore ex CONI-FIGC</li></ul>
+</div></details>
+
+<details style="--k:var(--b)"><summary><span class="n">5</span>Territorio, scuola, salute, tornei</summary><div class="bd">
+<ul><li><b>Valori in Rete</b> (FIGC-MIM): scuole di ogni grado, 5 obiettivi</li><li><b>Social Football</b>: Progetto Rete, Calcio Integrato, Zona Luce, Play for the Future</li></ul>
+<h4>Salute e gare</h4>
+<ul><li>Visita medica preventiva: al primo tesseramento e ogni anno; certificato agli atti <b>5 anni</b>; esenzione fino a 6 anni non compiuti</li><li><b>7 sostituzioni</b>, in distinta max <b>9 riserve</b> (assistente compreso)</li></ul>
+<div class="tbl"><table><tr><th>Cosa</th><th>Preavviso</th></tr><tr><td>Tornei internazionali</td><td>60 giorni</td></tr><tr><td>Tornei nazionali / all’estero di società italiane</td><td>45 giorni</td></tr><tr><td>Tornei regionali</td><td>30 giorni</td></tr><tr><td>Tornei provinciali/locali</td><td>20 giorni</td></tr><tr><td>Amichevoli: base · Giovanissimi/Allievi · internazionali</td><td>3 · 5 · 20 giorni</td></tr></table></div>
+<ul><li>Prestiti: solo Allievi e Giovanissimi, <b>max 3</b> per squadra</li><li>Centri estivi: 10 giugno – 15 settembre; invernali: 20 dicembre – 6 gennaio; comunicazione almeno 30 giorni prima, senza finalità di selezione</li><li>Open Day: solo giovani non tesserati per altre società FIGC, assicurazione a carico del club</li></ul>
+</div></details>
+</section>
+
+<section id="num">
+<p class="hint">Tocca una carta per vedere la risposta, tocca di nuovo per nasconderla.</p>
+<div class="fc" id="fc"></div>
+</section>
+
+<section id="dubbi">
+<details style="--k:var(--d)" open><summary>Da chiarire prima dell’esame</summary><div class="bd"><ul>
+<li><b>Accordo Collettivo FIGC-LND-AIAC</b>: la slide dice «fino al 30 giugno 2026». Verifica se è stato rinnovato.</li>
+<li><b>Protocollo C.U. 25</b>: intestazione 2025/2026 ma esonero «prima del 30 dicembre 2026», probabile refuso. Tabella termini d’esonero poco chiara.</li>
+<li><b>Regolamento ST</b>: il divieto di doppia attività è citato come art. 40 in alcune slide e art. 41 in altre. Chiedi al docente quale usare.</li>
+<li><b>Deroghe</b>: nell’elenco la numerazione salta il punto 4.</li>
+<li><b>Date di raduni e provini</b> (30 novembre 2025, 30 settembre 2025) in un C.U. 2026/27: forse non aggiornate.</li>
+<li><b>NASpI / DIS-COLL</b>: importi e soglie riferiti al 2023-2024, possono essere cambiati.</li>
+<li>Alcune slide del ST sono grafici non estraibili: integra con i tuoi appunti.</li></ul></div></details>
+</section>
+</main>
+<script>
+var S=[["mappa","Mappa"],["a","A · Carte"],["b","B · SGS"],["num","Numeri"],["dubbi","Dubbi"]];
+var nav=document.getElementById("nav");
+S.forEach(function(s){var b=document.createElement("button");b.textContent=s[1];b.dataset.k=s[0];b.onclick=function(){location.hash=s[0]};nav.appendChild(b)});
+function show(){var h=(location.hash||"#mappa").slice(1);if(!document.getElementById(h))h="mappa";
+S.forEach(function(s){document.getElementById(s[0]).classList.toggle("on",s[0]===h)});
+nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===h)});window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+var Q=[["Delegati dell’Assemblea","273 (presidente ogni 4 anni)"],["Articoli NOIF","118"],["Articoli CGS","142"],["Articoli Reg. Settore Tecnico","56, in 4 parti"],["Peso della LND","34%"],["Div. Calcio Paralimpico istituita","3 ottobre 2019"],["Firma UEFA Grassroots Charter","24 marzo 2009"],["Aggiornamento Coaching Convention","15 ore nel triennio (annuali da aprile 2026)"],["Quota Albo entro","30 settembre"],["Sospeso per morosità","2 annualità"],["Inattivo","3 annualità o licenza scaduta da oltre 6 mesi"],["Giorni per regolarizzare","60"],["Rientro da inattivo oltre 3 stagioni","Arretrati/aggiornamenti + esame orale ST"],["Prima squadra a non abilitato","30 giorni (60 nella fase conclusiva)"],["Società FIGC max (protocollo esonerati)","2"],["Posti extra in panchina LND/giovanili","2: allenatore portieri + preparatore atletico"],["Esenzione totale lavoro sportivo","Fino a 5.000 €"],["IRPEF e prospetto paga","Oltre 15.000 €"],["Ritenuta sui premi","20%"],["Rimborsi volontari","Fino a 400 €/mese"],["Co.co.co.","Min 150 €/mese, 1-5 anni, premi max 100% fisso"],["Certificato casellario via PEC","Entro 10 giorni"],["DIS-COLL","Domanda entro 68 giorni, max 12 mesi"],["Censimento SGS","31/10 (livelli 2-3) · 31/12 (livello 1) · ammenda max 500 €"],["Delegato Tutela Minori obbligatorio","Dal 3° livello"],["Punti classifica disciplina","Oltre 100 = non ammissione/esclusione"],["Età minima dirigente-arbitro","15 anni"],["Sostituzioni · riserve in distinta","7 · max 9"],["Prestiti","Max 3 per squadra, solo Allievi e Giovanissimi"],["Preavviso tornei","60 internaz. · 45 naz. · 30 reg. · 20 prov./loc."],["Preavviso amichevoli","3 base · 5 Giov./Allievi · 20 internaz. (giorni)"],["Centri estivi · invernali","10 giu–15 set · 20 dic–6 gen"],["Certificato medico agli atti","5 anni (esenti fino a 6 anni)"],["Raduni","Da 12 anni, richiesta 15 giorni prima"],["Annate: U14 · U15 · U16 · U17","2013 · 2012-13 · 2011 · 2010-11"]];
+var fc=document.getElementById("fc");
+Q.forEach(function(q){var b=document.createElement("button");var s=document.createElement("small");s.textContent=q[0];var t=document.createElement("strong");t.textContent=q[1];b.appendChild(s);b.appendChild(t);b.onclick=function(){b.classList.toggle("on")};fc.appendChild(b)});
+</script>
+<script src="tts.js"></script></body></html>

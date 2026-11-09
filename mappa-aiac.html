@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><title>Mappa di studio – L’AIAC, la casa dei tecnici</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--b:#2da44e;--c:#d4731a;--d:#c2397a;--e:#7a4bd6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--b:#4cc26b;--c:#f0993f;--d:#ee6fa8;--e:#a98bf0}}
+html{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:inherit}
+header{padding:16px 16px 4px}h1{font-size:1.25rem;margin:0}.sub{color:var(--mut);font-size:.85rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--bd)}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+nav button.on{background:var(--a);border-color:var(--a);color:#fff}
+main{padding:12px;max-width:760px;margin:0 auto}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;margin:0 0 10px;overflow:hidden}
+summary{padding:13px 14px;font-weight:600;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--mut);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+.n{flex:none;min-width:26px;height:26px;border-radius:13px;background:var(--k,var(--a));color:#fff;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.bd{padding:0 14px 14px}
+.bd h4{margin:12px 0 6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+ul{margin:4px 0;padding-left:18px}li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent);border:1px solid color-mix(in srgb,var(--k,var(--a)) 40%,transparent);border-radius:8px;padding:4px 9px;font-size:.85rem}
+.chip b{color:var(--k,var(--a))}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:380px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+th{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent)}
+.tip{background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.9rem}
+.map{display:grid;gap:10px}
+.map a{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--k);border-radius:12px;padding:12px 14px}
+.map b{color:var(--k);display:block;margin-bottom:4px}.map span{font-size:.88rem;color:var(--mut)}
+.tl{position:relative;margin:10px 0 4px 8px;padding-left:18px;border-left:3px solid var(--k,var(--a))}
+.tl div{position:relative;margin:0 0 10px;font-size:.92rem}
+.tl div::before{content:"";position:absolute;left:-25px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--k,var(--a))}
+.tl b{color:var(--k,var(--a))}
+.fc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc button{font:inherit;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;min-height:86px}
+.fc button small{color:var(--mut);display:block}
+.fc button strong{display:none;color:var(--b);margin-top:4px}
+.fc button.on strong{display:block}.fc button.on{border-color:var(--b)}
+.hint{color:var(--mut);font-size:.85rem;margin:0 0 10px}
+@media(max-width:380px){.fc{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>⚽ L’AIAC, la casa dei tecnici</h1><div class="sub">Corso propedeutico FIGC · Modulo 9 (avv. Pierluigi Vossi)</div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="mappa" class="on">
+<p class="hint">Tocca un riquadro per saltare alla parte.</p>
+<div class="map">
+<a href="#a" style="--k:var(--a)"><b>A · Gli inizi (1966-2021)</b><span>Nascita, primo Consiglio, Coverciano, tappe e riforma del lavoro sportivo</span></a>
+<a href="#b" style="--k:var(--b)"><b>B · Chi siamo oggi</b><span>Statuto, scopi, organi, territorio, Consiglio delle Qualifiche</span></a>
+<a href="#c" style="--k:var(--d)"><b>C · Cosa facciamo</b><span>Tutele, Fondi di Solidarietà, servizi, AIAC Service</span></a>
+<a href="#d" style="--k:var(--e)"><b>D · Le progettualità</b><span>Calcio femminile, inclusione, formazione e cultura, impegno sociale</span></a>
+<a href="#num" style="--k:var(--c)"><b>Flashcard</b><span>Date, numeri e domande di autoverifica</span></a>
+</div>
+<div class="tip" style="margin-top:12px">Parole chiave del modulo: <b>tutele, servizi, solidarietà, cultura.</b></div>
+</section>
+
+<section id="a">
+<details style="--k:var(--a)" open><summary><span class="n">A1</span>La nascita</summary><div class="bd">
+<div class="tl">
+<div><b>1966</b> · sconfitta dell’Italia con la <b>Corea del Nord</b>, polemiche e tensioni: serve proteggere e valorizzare l’allenatore. L’avv. <b>Ernesto Corigliano</b> fonda a Roma l’AIAC</div>
+<div><b>1967</b> · primo Consiglio: Nereo Rocco, Manlio Scopigno, Guido Mazzetti, Fulvio Bernardini, Luigi Del Grosso, Corigliano</div>
+<div><b>1972</b> · con il presidente Fulvio Bernardini l’AIAC si sposta a <b>Coverciano</b></div>
+</div>
+<p>Presidenti: Del Grosso, Zani, Pasero, Vicini; poi Ulivieri e Ragonesi (senza date nelle slide).</p>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A2</span>Le tappe, anno per anno</summary><div class="bd">
+<div class="tl">
+<div><b>1973</b> · legge 366/1973: previdenza e assistenza per allenatori e calciatori</div>
+<div><b>1975</b> · il <b>Fondo di Fine Carriera</b> diventa operativo</div>
+<div><b>1981</b> · legge 91/1981: rapporti tra società e sportivi professionisti</div>
+<div><b>1990</b> · costituito il <b>Fondo di Garanzia</b></div>
+<div><b>2001</b> · <b>Riforma Melandri</b>: l’AIAC entra nel governo del calcio</div>
+<div><b>2015</b> · costituite <b>AIAC Service</b> e AIAC Onlus</div>
+<div><b>2021</b> · <b>D.lgs. 36/2021</b>, Riforma del Lavoro sportivo</div>
+</div>
+<h4>Cosa porta la riforma del 2021 agli allenatori</h4>
+<div class="chips"><span class="chip">Indennità di disoccupazione per professionisti e dilettanti</span><span class="chip">Previdenza per i dilettanti, gestione separata INPS</span><span class="chip">Co.co.co. sportivo (area dilettantistica)</span><span class="chip">Abolizione dei massimali dilettanti</span></div>
+<div class="tip">Citazione (Warren Buffett): c’è qualcuno all’ombra oggi perché qualcun altro ha piantato un albero molto tempo fa.</div>
+</div></details>
+</section>
+
+<section id="b">
+<details style="--k:var(--b)" open><summary><span class="n">B1</span>Lo Statuto (artt. 1-2)</summary><div class="bd">
+<ul><li>L’AIAC è <b>componente tecnica</b> riconosciuta dalla FIGC</li><li><b>Scopo (art. 1)</b>: tutelare gli interessi sportivi, professionali, morali ed economici di allenatori, preparatori atletici e di tutte le figure tecnico-sportive abilitate dal Settore Tecnico, <b>esclusi medici e operatori sanitari</b></li><li><b>Art. 2</b>: cura la qualificazione e lo sviluppo del calcio, con attenzione alla formazione del giovane calciatore e della giovane calciatrice; organizzazione centrale e territoriale; promuove i valori dello sport e le <b>pari opportunità</b> tra donne e uomini</li></ul>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B2</span>Organi e territorio</summary><div class="bd">
+<div class="chips"><span class="chip">Presidente</span><span class="chip">Consiglio di Presidenza</span><span class="chip">Consiglio Direttivo</span><span class="chip">Collegi</span><span class="chip">Segreteria Generale</span></div>
+<p>Accanto all’associazione: <b>AIAC Service</b> (SRL) e <b>AIAC Solidale ETS</b>.</p>
+<div class="chips"><span class="chip"><b>20</b> gruppi regionali</span><span class="chip"><b>109</b> gruppi provinciali</span><span class="chip"><b>18.000+</b> tecnici iscritti</span></div>
+<p><b>Consiglio delle Qualifiche</b> (Statuto, art. 19 bis): raccoglie le specificità di ogni qualifica, dà rappresentanza alle singole categorie e impulso all’associazionismo sui territori.</p>
+</div></details>
+</section>
+
+<section id="c">
+<details style="--k:var(--d)" open><summary><span class="n">C1</span>Le tutele (2021-2025)</summary><div class="bd">
+<div class="tbl"><table><tr><th>Servizio</th><th>Numeri</th></tr><tr><td><b>Assistenza legale gratuita</b></td><td>oltre 2.000 allenatori assistiti</td></tr><tr><td><b>Sportello previdenziale e pensionistico</b></td><td>oltre 200 richieste</td></tr><tr><td><b>Accesso al Fondo di Fine Carriera</b></td><td>oltre 1.000 allenatori assistiti</td></tr></table></div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C2</span>I Fondi di Solidarietà</summary><div class="bd">
+<div class="tbl"><table><tr><th></th><th>Dilettanti</th><th>Professionisti</th></tr>
+<tr><td><b>A chi</b></td><td>Calciatori/trici, allenatori/trici e preparatori atletici tesserati LND</td><td>Calciatori e tecnici in difficoltà; dal 2023/24 anche Serie A Femminile pro</td></tr>
+<tr><td><b>Quando interviene</b></td><td>Mancato pagamento dei corrispettivi per revoca/decadenza dell’affiliazione o esclusione della società dal campionato (dal 2020/21)</td><td>Struttura consolidata, solida situazione patrimoniale</td></tr>
+<tr><td><b>Numeri</b></td><td>2021/25: <b>706</b> domande; <b>597.000 €</b> erogati su ~2 milioni richiesti</td><td>2020/24: <b>2.707</b> beneficiari; <b>497.700 €</b></td></tr>
+<tr><td><b>Percentuale</b></td><td>Indicata <b>45%</b></td><td><b>100%</b> sotto i 125.000 € lordi annui</td></tr></table></div>
+<div class="tip">Dubbio nelle slide: 597.000 su circa 2 milioni è circa il 30%, ma la slide dice 45%. Chiedi al docente quale cifra valga.</div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C3</span>Altri servizi e AIAC Service</summary><div class="bd">
+<ul><li><b>Sportello Psicologo</b> (sezione Psicologi dello Sport AIAC)</li><li><b>Hudl Wyscout</b>: per UEFA Pro e UEFA A non contrattualizzati</li><li>Rivista <b>«L’Allenatore»</b>: trimestrale, cartacea e digitale</li></ul>
+<h4>AIAC Service: cuore digitale e commerciale (SRL)</h4>
+<ul><li>Corsi digitali, webinar, sponsor, parte commerciale di assoallenatori</li><li>Organizza i <b>corsi periferici del Settore Tecnico</b> UEFA C e Licenza D</li><li><b>Myaiac.it</b>: portale degli abbonati, oltre <b>800 ore</b> di formazione</li><li><b>The Coach Experience</b>: evento annuale di 3 giorni. Dal 2023 la <b>Panchina d’oro Serie D</b>; 2024 Inzaghi e De Rossi; 2025 Mancini in cattedra e Premio Panini a Ranieri</li></ul>
+</div></details>
+</section>
+
+<section id="d">
+<details style="--k:var(--e)" open><summary><span class="n">D1</span>Calcio femminile</summary><div class="bd">
+<ul><li><b>Clinic</b> 2024 e 2025: 2 giorni (19-20 luglio 2024; 13-14 giugno 2025), <b>80+</b> partecipanti, con UEFA e FIGC; confronto con modelli giapponese, svedese, inglese, olandese</li><li><b>Prima! Training</b>: prevenzione degli infortuni nel calcio femminile, per fasce d’età e gruppi muscolari, video con QR; con la FIGC</li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D2</span>Inclusione</summary><div class="bd">
+<ul><li><b>Allenatore Paralimpico</b> (art. 30 Reg. ST): corso da <b>82 ore</b>, 3 aree: disabilità intellettivo-relazionali; ciechi e ipovedenti; amputati e cerebrolesi. Integrativo di <b>16 ore</b> online per il Corso Sperimentale 2021/22. Manuale multimediale</li><li><b>Walking Football</b>: disciplina inclusiva praticata camminando; convegno a Coverciano da UEFA Walking Football Toolkit</li><li><b>«Si può sempre giocare a calcio»</b>: malattia e passione sportiva; convegno scientifico + partita amichevole; 150+ partecipanti</li><li><b>Spirito Paralimpico</b>: prima app di sport inclusivo</li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D3</span>Formazione e cultura</summary><div class="bd">
+<div class="tbl"><table><tr><th>Progetto</th><th>Cosa è</th></tr>
+<tr><td><b>I settori giovanili al centro</b></td><td>2 giornate teoriche e pratiche; relatori Tesse, Milani, Cabella, Asta, Idem</td></tr>
+<tr><td><b>Open Mind</b></td><td>Corso annuale, nozioni da altre discipline, biblioteca a Coverciano; 70 partecipanti</td></tr>
+<tr><td><b>All Around Soccer</b></td><td>Studenti di Scienze Motorie e tecnici; 10 incontri/anno; dal 2016; <b>federale dal 2025/26</b>, <b>23 Atenei</b></td></tr>
+<tr><td><b>AIAC nei Licei Sportivi</b></td><td>Con la FIGC, incontri di 2 ore in <b>20 scuole</b></td></tr></table></div>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D4</span>Impegno sociale</summary><div class="bd">
+<ul><li><b>«Alleniamo la speranza»</b> (carceri): due corsi Licenza D a <b>Paola (CS)</b> e <b>Trani (BT)</b>; <b>80</b> partecipanti, <b>120 ore</b> a corso su 5 giornate settimanali; art. 27 Costituzione (funzione rieducativa della pena)</li><li><b>AIAC Solidale ETS</b>: borse di studio, progetti con UNICEF e FIGC contro razzismo e xenofobia, campagne sull’autismo con la Serie A, aiuti per Afghanistan e Ucraina, ospitalità a Coverciano per i settori giovanili di Dinamo Kiev e Ostra</li></ul>
+</div></details>
+</section>
+
+<section id="num">
+<p class="hint">Tocca una carta per vedere la risposta. Le ultime sono le domande di autoverifica.</p>
+<div class="fc" id="fc"></div>
+</section>
+</main>
+<script>
+var S=[["mappa","Mappa"],["a","A Storia"],["b","B Chi siamo"],["c","C Cosa facciamo"],["d","D Progetti"],["num","Flashcard"]];
+var nav=document.getElementById("nav");
+S.forEach(function(s){var b=document.createElement("button");b.textContent=s[1];b.dataset.k=s[0];b.onclick=function(){location.hash=s[0]};nav.appendChild(b)});
+function show(){var h=(location.hash||"#mappa").slice(1);if(!document.getElementById(h))h="mappa";
+S.forEach(function(s){document.getElementById(s[0]).classList.toggle("on",s[0]===h)});
+nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===h)});window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+var Q=[["Quando e perché nasce l’AIAC?","1966, dopo la sconfitta con la Corea del Nord: serve tutelare l’allenatore"],["Chi fonda l’AIAC?","L’avv. Ernesto Corigliano, a Roma"],["Primo Consiglio (1967)","Rocco, Scopigno, Mazzetti, Bernardini, Del Grosso, Corigliano"],["1972","L’AIAC si sposta a Coverciano con Fulvio Bernardini"],["1973","Legge 366: previdenza e assistenza"],["1975","Fondo di Fine Carriera operativo"],["1981","Legge 91: società e sportivi professionisti"],["1990","Fondo di Garanzia"],["2001","Riforma Melandri: l’AIAC nel governo del calcio"],["2015","AIAC Service e AIAC Onlus"],["2021","D.lgs. 36/2021, Riforma del Lavoro sportivo"],["Cosa porta la riforma 2021 agli allenatori","Disoccupazione, previdenza e INPS, co.co.co. sportivo, fine dei massimali"],["Scopo dell’AIAC (Statuto)","Tutela degli interessi di tecnici e figure tecniche, esclusi medici e operatori sanitari"],["Art. 2 dello Statuto","Formazione dei giovani, pari opportunità, organizzazione centrale e territoriale"],["Territorio","20 gruppi regionali, 109 provinciali, 18.000+ iscritti"],["Organi","Presidente, Consiglio di Presidenza, Consiglio Direttivo, Collegi, Segreteria Generale"],["Consiglio delle Qualifiche","Art. 19 bis: rappresenta le singole qualifiche"],["Tutele 2021-2025","Legale 2.000+ · previdenza 200+ · Fine Carriera 1.000+"],["Fondo Dilettanti","706 domande, 597.000 €, 45% indicato"],["Fondo Professionisti","2.707 beneficiari, 497.700 €, 100% sotto 125.000 € lordi"],["AIAC Service","SRL: corsi digitali, sponsor, corsi periferici UEFA C e Licenza D, Myaiac.it"],["Myaiac.it","Portale abbonati, oltre 800 ore di formazione"],["The Coach Experience","Evento annuale di 3 giorni; dal 2023 Panchina d’oro Serie D"],["Allenatore Paralimpico","Art. 30 Reg. ST, 82 ore, 3 aree; integrativo 16 ore"],["All Around Soccer","Dal 2016; federale dal 2025/26; 23 Atenei"],["AIAC nei Licei Sportivi","20 scuole, incontri di 2 ore"],["Alleniamo la speranza","Carceri di Paola e Trani, 80 partecipanti, 120 ore a corso"],["Clinic calcio femminile","2024 e 2025, 2 giorni, 80+ partecipanti"],["Open Mind","70 partecipanti, biblioteca a Coverciano"]];
+var fc=document.getElementById("fc");
+Q.forEach(function(q){var b=document.createElement("button");var s=document.createElement("small");s.textContent=q[0];var t=document.createElement("strong");t.textContent=q[1];b.appendChild(s);b.appendChild(t);b.onclick=function(){b.classList.toggle("on")};fc.appendChild(b)});
+</script>
+<script src="tts.js"></script></body></html>

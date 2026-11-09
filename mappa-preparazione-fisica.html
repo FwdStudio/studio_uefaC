@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><title>Mappa di studio – Preparazione fisico-atletica</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--b:#2da44e;--c:#d4731a;--d:#c2397a;--e:#7a4bd6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--b:#4cc26b;--c:#f0993f;--d:#ee6fa8;--e:#a98bf0}}
+html{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:inherit}
+header{padding:16px 16px 4px}h1{font-size:1.25rem;margin:0}.sub{color:var(--mut);font-size:.85rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--bd)}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+nav button.on{background:var(--a);border-color:var(--a);color:#fff}
+main{padding:12px;max-width:760px;margin:0 auto}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;margin:0 0 10px;overflow:hidden}
+summary{padding:13px 14px;font-weight:600;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--mut);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+.n{flex:none;min-width:26px;height:26px;border-radius:13px;background:var(--k,var(--a));color:#fff;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.bd{padding:0 14px 14px}
+.bd h4{margin:12px 0 6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+ul{margin:4px 0;padding-left:18px}li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent);border:1px solid color-mix(in srgb,var(--k,var(--a)) 40%,transparent);border-radius:8px;padding:4px 9px;font-size:.85rem}
+.chip b{color:var(--k,var(--a))}
+.flow{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.flow div{background:color-mix(in srgb,var(--k,var(--a)) 12%,transparent);border-radius:8px;padding:8px 10px;font-size:.92rem}
+.flow div:not(:last-child)::after{content:"↓";display:block;text-align:center;color:var(--mut);margin-top:4px}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:380px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+th{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent)}
+.tip{background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.9rem}
+.map{display:grid;gap:10px}
+.map a{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--k);border-radius:12px;padding:12px 14px}
+.map b{color:var(--k);display:block;margin-bottom:4px}.map span{font-size:.88rem;color:var(--mut)}
+.bar{display:grid;grid-template-columns:90px 1fr 40px;gap:8px;align-items:center;margin:5px 0;font-size:.85rem}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--k,var(--a))}
+.fc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc button{font:inherit;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;min-height:86px}
+.fc button small{color:var(--mut);display:block}
+.fc button strong{display:none;color:var(--b);margin-top:4px}
+.fc button.on strong{display:block}.fc button.on{border-color:var(--b)}
+.hint{color:var(--mut);font-size:.85rem;margin:0 0 10px}
+@media(max-width:380px){.fc{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>⚽ Preparazione fisico-atletica</h1><div class="sub">Corso propedeutico FIGC · Modulo 5</div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="mappa" class="on">
+<p class="hint">Tocca un riquadro per saltare alla parte.</p>
+<div class="map">
+<a href="#ab" style="--k:var(--a)"><b>A-B · Tecnologia educativa e attività di base</b><span>Principi, 5 principi del campo, progressione 6-12 anni, formula 70/20/10</span></a>
+<a href="#c" style="--k:var(--b)"><b>C · Che cos’è l’allenamento</b><span>Adattamento, supercompensazione, carico, parametri (Ferretti)</span></a>
+<a href="#d" style="--k:var(--d)"><b>D · Sistemi energetici</b><span>ATP, 3 meccanismi, soglia, VO2 max, VAM, il calcio</span></a>
+<a href="#e" style="--k:var(--e)"><b>E · Capacità coordinative</b><span>Analizzatori, periodi sensibili, le 7 capacità (Perondi)</span></a>
+<a href="#f" style="--k:var(--c)"><b>F · Capacità condizionali</b><span>Forza, velocità, resistenza, mobilità</span></a>
+<a href="#num" style="--k:var(--b)"><b>Flashcard</b><span>Numeri, definizioni e domande di autoverifica</span></a>
+</div>
+<div class="tip" style="margin-top:12px">Messaggio del modulo: <b>prima di costruire il calciatore forte, bisogna costruire il calciatore coordinato.</b></div>
+</section>
+
+<section id="ab">
+<details style="--k:var(--a)" open><summary><span class="n">A</span>Tecnologia educativa</summary><div class="bd">
+<ul><li>L’allenamento è un processo <b>dinamico, complesso, non improvvisato</b>. Produce adattamenti biomeccanici e coordinativi, fisiologici e muscolari, cognitivo-nervosi e sociali</li><li>Il tecnico è allenatore, educatore, facilitatore, accompagnatore: <b>sapere, saper fare, saper far fare, far sapere</b></li></ul>
+<div class="chips"><span class="chip"><b>Accoglienza</b>: clima sereno, fiducia</span><span class="chip"><b>Accompagnamento</b>: comunicare</span><span class="chip"><b>Competenza</b>: la tecnica</span></div>
+<h4>Forme di apprendimento</h4>
+<div class="chips"><span class="chip">Imitazione</span><span class="chip">Prove ed errori</span><span class="chip">Intuizione</span><span class="chip">Comprensione</span><span class="chip">Soluzione dei problemi</span></div>
+<h4>3 principi per organizzare un programma</h4>
+<div class="tbl"><table><tr><th>Principio</th><th>Significato</th></tr><tr><td><b>Polivalenza</b></td><td>Attività orientate a capacità e abilità con trasferibilità e validità molteplici</td></tr><tr><td><b>Multilateralità</b></td><td>Aspetti didattici: contenuti, mezzi e organizzazione (giochi, percorsi, circuiti, prove multiple)</td></tr><tr><td><b>Polisportività</b></td><td>Pratica di molteplici discipline o di azioni di gioco tratte da esse</td></tr></table></div>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">B1</span>I 5 principi dell’attività di base (6-12 anni)</summary><div class="bd">
+<div class="flow"><div><b>1.</b> Divertimento e partecipazione</div><div><b>2.</b> Imparare giocando</div><div><b>3.</b> Multilateralità motoria</div><div><b>4.</b> Centralità delle capacità coordinative</div><div><b>5.</b> Tecnica con le situazioni di gioco</div></div>
+<ul><li><b>Specializzazione precoce</b>: da evitare fino a 12-13 anni. Prima arricchire il bagaglio motorio, poi il calciatore</li><li>6-12 anni = <b>finestra sensibile</b> per lo sviluppo coordinativo</li><li>Tecnica non solo analitica: niente passaggi o tiri in fila, ma situazioni con possibilità di scelta</li></ul>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">B2</span>Progressione didattica</summary><div class="bd">
+<div class="tbl"><table><tr><th>Età</th><th>Obiettivo</th><th>Tempo di gioco</th></tr><tr><td>6-8</td><td>Scoprire il movimento: giochi motori, coordinazione generale</td><td>80%</td></tr><tr><td>9-10</td><td>Consolidare le abilità: tecnica di base, dominio della palla</td><td>70%</td></tr><tr><td>11-12</td><td>Preparazione al calcio: primi principi tattici, decisioni, capacità condizionali</td><td>60%</td></tr></table></div>
+<div class="tip"><b>Regola d’oro</b>: contribuire alla crescita del bambino-atleta attraverso il gioco, non formare il piccolo professionista. Formula: <b>70% gioco + 20% tecnica + 10% correzioni</b>.</div>
+<ul><li>Allenatore = facilitatore, educatore, organizzatore di situazioni</li><li>Spiegazioni brevi, feedback positivi, domande stimolo («Quale altra soluzione potevi scegliere?»), non «Dovevi fare così»</li></ul>
+</div></details>
+</section>
+
+<section id="c">
+<details style="--k:var(--b)" open><summary><span class="n">C1</span>Adattamento e stimolo</summary><div class="bd">
+<p>Si cambia l’organismo con un processo che produce <b>cambiamenti stabili</b> (fisiologici, metabolici, biomeccanici, coordinativi, psicologici) per ripetizione continuativa e organizzata.</p>
+<ul><li><b>Omeostasi</b>: l’equilibrio che l’organismo cerca di mantenere. Lo stimolo (stress) allenante lo disturba e l’organismo compensa</li><li>Stimolo breve o lieve = effetti minimi; ripetuto bene per durata e intensità = effetti evidenti</li></ul>
+<div class="tbl"><table><tr><th>Aggiustamento</th><th>Adattamento</th></tr><tr><td>Risposta <b>acuta</b>, rapida, <b>non stabile</b></td><td>Risposta <b>cronica</b>, lenta, <b>duratura</b></td></tr><tr><td>Es. FC alta durante lo sforzo</td><td>Es. FC a riposo più bassa se corro con continuità</td></tr></table></div>
+<div class="tip"><b>Allenabilità ≠ allenamento</b>: è la capacità di adattarsi ai carichi. Dipende da <b>genetica, età</b> (biologica e cronologica), <b>fasi sensibili</b>. «Ciò che non apprende il bambino, difficilmente verrà appreso da adulto».</div>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">C2</span>Supercompensazione</summary><div class="bd">
+<div class="flow"><div><b>Lavoro</b>: durante la seduta le capacità diminuiscono</div><div><b>Recupero</b>: l’organismo riporta i parametri alla norma</div><div><b>Esaltazione</b>: si raggiunge un livello di partenza più alto</div></div>
+<p>Contano i <b>giusti periodi di recupero</b> tra le sedute: l’organismo, per non essere stressato di nuovo da un carico uguale, migliora il livello di partenza.</p>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">C3</span>Il carico d’allenamento</summary><div class="bd">
+<div class="tbl"><table><tr><th>Carico esterno</th><th>Carico interno</th></tr><tr><td>Quantificazione <b>oggettiva</b> dei mezzi (km, velocità, accelerazioni)</td><td>Somma degli stress subiti dall’organismo, <b>soggettivo</b></td></tr><tr><td>Strumento: <b>GPS</b></td><td>Strumento: <b>frequenza cardiaca</b></td></tr></table></div>
+<h4>5 parametri del carico (obbligatori)</h4>
+<div class="chips"><span class="chip"><b>Intensità</b>: forza dello stimolo</span><span class="chip"><b>Durata</b></span><span class="chip"><b>Densità</b>: rapporto impegno/recupero</span><span class="chip"><b>Volume</b></span><span class="chip"><b>Frequenza</b>: minimo <b>3</b> sedute a settimana</span></div>
+<div class="tip"><b>Carico = Quantità × Intensità</b>. Quantità: metri/km per la corsa; serie e/o kg totali per la forza.</div>
+<h4>Due metodi per valutare l’intensità</h4>
+<ul><li><b>5 livelli</b> decisi dal tecnico: leggera → media → forte → intensa → massimale (dipende dalla sensibilità del tecnico)</li><li><b>Intensità relativa</b>: percentuale di un parametro noto, FC max (es. 80-90%) o carico massimale (una sola ripetizione)</li></ul>
+</div></details>
+</section>
+
+<section id="d">
+<details style="--k:var(--d)" open><summary><span class="n">D1</span>ATP e i tre meccanismi</summary><div class="bd">
+<p>L’<b>ATP</b> è la «benzina» del muscolo: l’unica energia utilizzabile. Ne esiste poca, va continuamente <b>risintetizzata</b>.</p>
+<div class="tbl"><table><tr><th>Meccanismo</th><th>Come</th><th>Potenza</th><th>Capacità</th></tr>
+<tr><td><b>Anaerobico alattacido</b></td><td>Fosfocreatina. Interviene <b>per primo</b></td><td>Molto elevata</td><td>Secondi</td></tr>
+<tr><td><b>Anaerobico lattacido</b></td><td>Glicogeno → lattato. Ha bisogno di un po’ di tempo</td><td>Elevata</td><td>Pochi minuti</td></tr>
+<tr><td><b>Aerobico</b></td><td>Glucidi e lipidi con ossigeno → CO2 + H2O</td><td>Bassa</td><td>Ore</td></tr></table></div>
+<ul><li>I tre meccanismi <b>collaborano</b>, non lavorano da soli</li><li>Potenza e capacità sono modificabili con l’allenamento</li></ul>
+<h4>Scatto di 3 secondi</h4>
+<div class="bar"><span>Alattacido</span><i style="width:65%"></i><b>65%</b></div>
+<div class="bar"><span>Lattacido</span><i style="width:32%"></i><b>32%</b></div>
+<div class="bar"><span>Aerobico</span><i style="width:3%"></i><b>3%</b></div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">D2</span>Debito di ossigeno, soglia, VO2 max, VAM</summary><div class="bd">
+<ul><li><b>Debito di ossigeno</b>: il meccanismo aerobico si adegua lentamente, all’inizio l’ATP viene dalle fonti anaerobiche. Si «paga» allo <b>steady state</b></li><li><b>Soglia anaerobica</b>: intensità con lattato di circa <b>4 mM</b> (S4); equilibrio tra lattato prodotto e smaltito</li><li><b>VO2 max</b>: massima potenza aerobica (l/min o ml/kg/min)</li><li><b>VAM</b>: la <b>minima velocità</b> alla quale si raggiunge il VO2 max</li></ul>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">D3</span>Il calcio</summary><div class="bd">
+<ul><li>Un buon meccanismo aerobico permette intensità di corsa elevate <b>senza far intervenire in modo importante il lattacido</b></li><li><b>Scatti brevi ma frequenti</b>: il lattato si accumula «per somma». Per eliminarlo si deve ridurre l’intensità di corsa</li><li>Acido lattico = ione lattato + ione idrogeno (H⁺). L’H⁺ abbassa il pH: al <b>pH critico</b> le fibre non si contraggono più</li></ul>
+</div></details>
+</section>
+
+<section id="e">
+<details style="--k:var(--e)" open><summary><span class="n">E1</span>Cosa sono e gli analizzatori</summary><div class="bd">
+<p>Capacità di eseguire un movimento nella forma più efficace: dosare e regolare gli interventi muscolari nello spazio-tempo. Legate al <b>sistema nervoso centrale</b>, sono la base dell’apprendimento tecnico-tattico e vanno allenate in modo <b>prioritario</b> nel settore giovanile.</p>
+<h4>6 analizzatori</h4>
+<div class="tbl"><table><tr><th>Analizzatore</th><th>Informazione</th></tr><tr><td><b>Cinestetico</b></td><td>Propriocettori: tono, tensione, posizione dei segmenti, equilibrio</td></tr><tr><td><b>Visivo</b></td><td>Determinante per movimenti fini e balistici</td></tr><tr><td><b>Acustico</b></td><td>Localizzazione spazio-temporale dei suoni</td></tr><tr><td><b>Tattile</b></td><td>Prensione, manipolazione (peso, forma)</td></tr><tr><td><b>Olfattivo</b></td><td>Provenienza e distanza degli odori</td></tr><tr><td><b>Statico-dinamico</b></td><td>Posizione di capo e corpo, accelerazione, direzione</td></tr></table></div>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">E2</span>Sviluppo e apprendimento</summary><div class="bd">
+<ul><li>Le tappe coordinative corrispondono a momenti di <b>ristrutturazione del SNC</b>. Meno stimoli motori = meno connessioni, anche cognitive</li><li>Il <b>gioco</b> è determinante per l’apprendimento tecnico</li><li>Periodi sensibili legati a età cronologica e biologica</li></ul>
+<div class="tbl"><table><tr><th>Si pensava</th><th>Si sa ora</th></tr><tr><td>Sviluppare una tecnica ideale</td><td>Non esistono due modelli di movimento identici</td></tr><tr><td>Ripetere perfettamente, limitare la variabilità</td><td>Esplorare modelli diversi, ricercare la <b>variabilità</b></td></tr><tr><td>Tutti sulla stessa tecnica</td><td>Ognuno si coordina in base a fattori unici</td></tr></table></div>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">E3</span>Le 7 capacità coordinative</summary><div class="bd">
+<div class="tbl"><table><tr><th>Capacità</th><th>Nel calcio</th><th>Come allenarla</th></tr>
+<tr><td><b>Apprendimento motorio</b></td><td>Nuovi gesti (conduzione, tiro)</td><td>Esercitazioni variate, percorsi</td></tr>
+<tr><td><b>Adattamento e trasformazione</b></td><td>Situazioni impreviste</td><td>Giochi a temi, superiorità/inferiorità</td></tr>
+<tr><td><b>Orientamento spazio-temporale</b></td><td>Smarcamento, spazi, traiettorie</td><td>Possesso, giochi di posizione</td></tr>
+<tr><td><b>Differenziazione cinestesica</b></td><td>Precisione di passaggi e tiri</td><td>Obiettivi di precisione, distanze variabili</td></tr>
+<tr><td><b>Equilibrio</b></td><td>Stabilità nei contrasti</td><td>Monopodalici, instabilità controllata</td></tr>
+<tr><td><b>Ritmo</b></td><td>Cambi di velocità, tempi di gioco</td><td>Scalette, percorsi ritmati</td></tr>
+<tr><td><b>Reazione</b></td><td>Intercettazioni, anticipi</td><td>Segnali visivi e sonori</td></tr></table></div>
+<div class="tip"><b>1 su 19.000</b> arriva alla soglia del professionismo: il compito è progettare interventi attenti alla crescita degli altri 18.999 (Bonfanti).</div>
+</div></details>
+</section>
+
+<section id="f">
+<details style="--k:var(--c)" open><summary><span class="n">F</span>Le 4 capacità condizionali</summary><div class="bd">
+<p>Qualità fisiche che dipendono da sistemi energetici, muscolari e neuromuscolari.</p>
+<div class="tbl"><table><tr><th>Capacità</th><th>Cos’è e nel calcio giovanile</th></tr>
+<tr><td><b>Forza</b></td><td>Vincere o opporsi a una resistenza. Contrasti, colpo di testa, accelerazioni, tiro. Generale (core, squat, affondi), esplosiva (CMJ, balzi), rapida (cambi di direzione)</td></tr>
+<tr><td><b>Velocità</b></td><td>Azioni nel minor tempo (SAQ: speed, agility, quickness). Sprint <b>5-15 m</b> e <b>20-30 m</b>, reazione, agilità, anticipo. Componenti: reazione, accelerazione, movimento</td></tr>
+<tr><td><b>Resistenza</b></td><td>Sostenere lo sforzo ritardando la fatica; ripetere sprint, mantenere lucidità</td></tr>
+<tr><td><b>Mobilità articolare</b></td><td>Ampia escursione (spalle, tronco, anca, caviglia). Migliora il gesto, riduce gli infortuni</td></tr></table></div>
+<h4>Zone aerobiche (% FC max)</h4>
+<div class="bar" style="--k:var(--b)"><span>60-75%</span><i style="width:35%"></i><b></b></div>
+<div class="bar" style="--k:var(--c)"><span>75-85%</span><i style="width:60%"></i><b></b></div>
+<div class="bar" style="--k:var(--d)"><span>85-95%</span><i style="width:85%"></i><b></b></div>
+<div class="tbl"><table><tr><th>Zona</th><th>Tipo</th><th>Scopo</th></tr><tr><td>60-75%</td><td>Completamente aerobico</td><td>Capacità di recuperare</td></tr><tr><td>75-85%</td><td>Prevalentemente aerobico</td><td>Lavori mediamente intensi, recupero rapido</td></tr><tr><td>85-95%</td><td>Parzialmente aerobico (molto stimolato il lattacido)</td><td>Ripetere azioni ad alta intensità</td></tr></table></div>
+<div class="tip">Principio guida: sviluppo <b>integrato e ludico</b>, nel rispetto delle fasi sensibili.</div>
+</div></details>
+</section>
+
+<section id="num">
+<p class="hint">Tocca una carta per vedere la risposta. Le ultime sono le domande di autoverifica.</p>
+<div class="fc" id="fc"></div>
+</section>
+</main>
+<script>
+var S=[["mappa","Mappa"],["ab","A-B Base"],["c","C Allenamento"],["d","D Energia"],["e","E Coordinative"],["f","F Condizionali"],["num","Flashcard"]];
+var nav=document.getElementById("nav");
+S.forEach(function(s){var b=document.createElement("button");b.textContent=s[1];b.dataset.k=s[0];b.onclick=function(){location.hash=s[0]};nav.appendChild(b)});
+function show(){var h=(location.hash||"#mappa").slice(1);if(!document.getElementById(h))h="mappa";
+S.forEach(function(s){document.getElementById(s[0]).classList.toggle("on",s[0]===h)});
+nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===h)});window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+var Q=[["Principi dell’attività di base","5: divertimento, imparare giocando, multilateralità, coordinative, tecnica in situazione"],["Formula del 6-12 anni","70% gioco + 20% tecnica + 10% correzioni"],["Tempo di gioco 6-8 · 9-10 · 11-12","80% · 70% · 60%"],["Specializzazione precoce","Da evitare fino a 12-13 anni"],["Finestra sensibile coordinativa","6-12 anni"],["Polivalenza · multilateralità · polisportività","Trasferibilità · aspetti didattici · più discipline"],["Aggiustamento","Risposta acuta, rapida, non stabile"],["Adattamento","Risposta cronica, lenta, duratura"],["Allenabilità dipende da","Genetica, età, fasi sensibili"],["Supercompensazione","Lavoro, recupero, esaltazione (livello più alto)"],["Carico esterno · carico interno","Oggettivo (GPS) · soggettivo (frequenza cardiaca)"],["5 parametri del carico","Intensità, durata, densità, volume, frequenza"],["Frequenza minima settimanale","3 sedute"],["Formula del carico","Quantità × Intensità"],["Valutazione dell’intensità","5 livelli del tecnico oppure % di FC max o del carico massimale"],["Meccanismo che interviene per primo","Anaerobico alattacido (fosfocreatina)"],["Alattacido · lattacido · aerobico","Capacità: secondi · pochi minuti · ore"],["Scatto di 3 secondi","65% alattacido · 32% lattacido · 3% aerobico"],["Soglia anaerobica (convenzionale)","Circa 4 mM di lattato (S4)"],["VAM","Minima velocità a cui si raggiunge il VO2 max"],["Scatti brevi e frequenti","Il lattato si accumula per somma: si riduce l’intensità"],["Analizzatori","Cinestetico, visivo, acustico, tattile, olfattivo, statico-dinamico"],["Le 7 capacità coordinative","Apprendimento, adattamento, orientamento, differenziazione, equilibrio, ritmo, reazione"],["Capacità condizionali","Forza, velocità, resistenza, mobilità articolare"],["Sprint tipici del calcio giovanile","5-15 m e 20-30 m"],["Zone di FC max per la resistenza","60-75% · 75-85% · 85-95%"],["Quanti arrivano al professionismo","1 su 19.000"]];
+var fc=document.getElementById("fc");
+Q.forEach(function(q){var b=document.createElement("button");var s=document.createElement("small");s.textContent=q[0];var t=document.createElement("strong");t.textContent=q[1];b.appendChild(s);b.appendChild(t);b.onclick=function(){b.classList.toggle("on")};fc.appendChild(b)});
+</script>
+<script src="tts.js"></script></body></html>

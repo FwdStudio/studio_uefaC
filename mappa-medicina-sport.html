@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><title>Mappa di studio – Medicina dello sport</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--b:#2da44e;--c:#d4731a;--d:#c2397a;--e:#7a4bd6}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--b:#4cc26b;--c:#f0993f;--d:#ee6fa8;--e:#a98bf0}}
+html{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+*,*::before,*::after{box-sizing:inherit}
+header{padding:16px 16px 4px}h1{font-size:1.25rem;margin:0}.sub{color:var(--mut);font-size:.85rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding:8px 12px;overflow-x:auto;border-bottom:1px solid var(--bd)}
+nav button{flex:none;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+nav button.on{background:var(--a);border-color:var(--a);color:#fff}
+main{padding:12px;max-width:760px;margin:0 auto}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;margin:0 0 10px;overflow:hidden}
+summary{padding:13px 14px;font-weight:600;cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;color:var(--mut);font-size:1.3rem}
+details[open] summary::after{content:"–"}
+.n{flex:none;min-width:26px;height:26px;border-radius:13px;background:var(--k,var(--a));color:#fff;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+.bd{padding:0 14px 14px}
+.bd h4{margin:12px 0 6px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+ul{margin:4px 0;padding-left:18px}li{margin:3px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent);border:1px solid color-mix(in srgb,var(--k,var(--a)) 40%,transparent);border-radius:8px;padding:4px 9px;font-size:.85rem}
+.chip b{color:var(--k,var(--a))}
+.flow{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.flow div{background:color-mix(in srgb,var(--k,var(--a)) 12%,transparent);border-radius:8px;padding:8px 10px;font-size:.92rem}
+.flow div:not(:last-child)::after{content:"↓";display:block;text-align:center;color:var(--mut);margin-top:4px}
+.tbl{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.85rem;min-width:380px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+th{background:color-mix(in srgb,var(--k,var(--a)) 14%,transparent)}
+.tip{background:color-mix(in srgb,var(--c) 14%,transparent);border-left:4px solid var(--c);border-radius:8px;padding:8px 10px;margin:8px 0;font-size:.9rem}
+.map{display:grid;gap:10px}
+.map a{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--k);border-radius:12px;padding:12px 14px}
+.map b{color:var(--k);display:block;margin-bottom:4px}.map span{font-size:.88rem;color:var(--mut)}
+.fc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fc button{font:inherit;text-align:left;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:12px;min-height:86px}
+.fc button small{color:var(--mut);display:block}
+.fc button strong{display:none;color:var(--b);margin-top:4px}
+.fc button.on strong{display:block}.fc button.on{border-color:var(--b)}
+.hint{color:var(--mut);font-size:.85rem;margin:0 0 10px}
+@media(max-width:380px){.fc{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>⚽ Medicina dello sport e preparazione</h1><div class="sub">Corso propedeutico FIGC · Modulo 3</div></header>
+<nav id="nav"></nav>
+<main>
+
+<section id="mappa" class="on">
+<p class="hint">Tocca un riquadro per saltare alla parte.</p>
+<div class="map">
+<a href="#a" style="--k:var(--a)"><b>A · Prevenzione e stili di vita</b><span>Prevenzione oncologica, attività fisica, alcol, fumo (Di Maio)</span></a>
+<a href="#b" style="--k:var(--b)"><b>B · Nutrire il talento</b><span>Ruolo dell’allenatore, RED-S, pasti, match day, integratori, Ramadan (Pira)</span></a>
+<a href="#c" style="--k:var(--d)"><b>C · Prevenzione degli infortuni</b><span>Modello, classificazione, LCA, hamstring (Pisoni)</span></a>
+<a href="#d" style="--k:var(--e)"><b>D · Bioenergetica e calcio</b><span>Sistemi energetici, VO2max, soglia, fibre (Martelli)</span></a>
+<a href="#e" style="--k:var(--c)"><b>E · Età dell’accrescimento</b><span>Pubertà, auxologia, apofisiti, dismorfismi e paramorfismi (Causarano)</span></a>
+<a href="#num" style="--k:var(--b)"><b>Flashcard e autoverifica</b><span>Numeri da ricordare e domande delle check list</span></a>
+</div>
+</section>
+
+<section id="a">
+<details style="--k:var(--a)" open><summary><span class="n">A1</span>Prevenzione oncologica</summary><div class="bd">
+<div class="flow"><div><b>Primaria</b>: ridurre l’esposizione al fattore di rischio</div><div><b>Secondaria</b>: screening, diagnosi prima dei sintomi</div><div><b>Terziaria</b>: chi ha già la diagnosi, ridurre le conseguenze</div></div>
+<div class="chips"><span class="chip"><b>360-390 mila</b> nuovi tumori/anno in Italia</span><span class="chip">Alcol: almeno <b>9</b> tipi di tumore</span><span class="chip">Sedentarietà: <b>13</b> tipi</span></div>
+<ul><li>Fumo e ubriacature negli adolescenti italiani sopra la media UE</li><li>Etanolo cancerogeno di <b>gruppo 1</b>; non esiste soglia sicura</li><li>Sigaretta: oltre 4.000 sostanze, circa 60 cancerogene</li></ul>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A2</span>L’allenatore «maestro di salute»</summary><div class="bd">
+<div class="chips"><span class="chip"><b>13%</b> teenager fuma</span><span class="chip"><b>10%+</b> beve troppo</span><span class="chip"><b>20%</b> dei 15enni sovrappeso, <b>3,7%</b> obeso</span><span class="chip"><b>36%</b> chiede consigli al coach</span></div>
+<ul><li>L’allenatore non sostituisce il medico: collabora con medici, genitori, insegnanti</li><li>Attività fisica (OMS): qualunque sforzo muscolare con consumo di energia superiore al riposo</li><li>Previene mal di schiena, osteoartrite, diabete, malattie cardiovascolari, obesità</li></ul>
+<h4>Leggende false</h4><ul><li>«Se fai sport devi mangiare di più» (l’apporto resta equilibrato)</li><li>«Più sport è meglio» (l’eccesso sovraccarica cuore, tendini, articolazioni)</li><li>«Lo sport aumenta lo stress» (scarica l’ansia)</li></ul>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A3</span>Alcol</summary><div class="bd">
+<div class="chips"><span class="chip"><b>12 g</b> = 1 bicchiere (vino 125 ml, birra 330 ml, superalcolico 40 ml)</span><span class="chip"><b>7 kcal/g</b> (≈100 kcal a bicchiere)</span><span class="chip">Fegato smaltisce <b>7 g/ora</b></span><span class="chip"><b>0,5 g/l</b> = rischio incidente ×10</span></div>
+<ul><li><b>Mai</b> la sera prima di una gara (nel «terzo tempo» al massimo un bicchiere); <b>mai prima dei 16 anni</b>; mai prima di guidare</li><li>Assorbito 80% intestino, 20% stomaco (a stomaco vuoto più in fretta)</li><li>Unica bevanda indispensabile: acqua, almeno <b>2 litri</b> al giorno</li><li>Leggende: non favorisce il sonno, non riscalda (è vasodilatatore), non aiuta la sessualità</li></ul>
+</div></details>
+<details style="--k:var(--a)"><summary><span class="n">A4</span>Fumo e altri consigli</summary><div class="bd">
+<ul><li>Meno ossigeno: muscoli più stanchi. Monossido di carbonio rende il sangue più vischioso</li><li>Causa il <b>30%</b> dei tumori; 20 sigarette al giorno = <b>4,6 anni</b> di vita in meno (se si inizia a 25 anni)</li><li>Le «light» non fanno meno male; il fumo passivo non è innocuo; nessuna dose sicura</li><li>Sigarette elettroniche: deludenti per smettere; i non fumatori devono evitarle</li></ul>
+<h4>Smettere: 5 consigli</h4><div class="chips"><span class="chip">Data precisa comunicata</span><span class="chip">Eliminare ogni traccia</span><span class="chip">Gestire il desiderio</span><span class="chip">Regalo coi soldi risparmiati</span><span class="chip">Stop subito, no sostitutivi con nicotina</span></div>
+<ul><li>Sole: crema sempre; lampade solari cancerogene, vietate ai minori di 18 anni</li><li>No al doping · sesso protetto · vaccinazioni</li></ul>
+</div></details>
+</section>
+
+<section id="b">
+<details style="--k:var(--b)" open><summary><span class="n">B1</span>I 3 ruoli dell’allenatore</summary><div class="bd">
+<div class="chips"><span class="chip"><b>Promuovere</b> abitudini sane</span><span class="chip"><b>Riconoscere</b> segnali problematici</span><span class="chip"><b>Indirizzare</b> a famiglia, pediatra, nutrizionista</span></div>
+<div class="tip">L’allenatore <b>non prescrive diete</b>, accompagna. Prima viene la salute, poi la performance.</div>
+<div class="tbl"><table><tr><th>Da evitare</th><th>Da preferire</th></tr><tr><td>«Devi dimagrire», «sei ingrassato/a»</td><td>«Come ti senti in allenamento?»</td></tr><tr><td>«Con qualche chilo in meno correresti di più»</td><td>«Hai energia? Recuperi bene?»</td></tr><tr><td>«Non mangiare la pasta»</td><td>«Hai qualcuno che ti segue per l’alimentazione?»</td></tr></table></div>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B2</span>Adolescente e RED-S</summary><div class="bd">
+<ul><li>L’adolescente <b>non è un piccolo adulto</b>: lo sport si aggiunge al fabbisogno della crescita</li><li>Ragazze: l’aumento di tessuto adiposo in pubertà è fisiologico. Un <b>ciclo che scompare non è normale</b></li><li><b>RED-S</b> = Relative Energy Deficiency in Sport: energia insufficiente dopo aver sottratto il costo dell’esercizio</li></ul>
+<h4>Segnali di allarme</h4>
+<div class="chips"><span class="chip">Affaticamento persistente</span><span class="chip">Calo performance</span><span class="chip">Infortuni ricorrenti</span><span class="chip">Malattie frequenti</span><span class="chip">Ossessione per cibo o peso</span><span class="chip">Eliminazione di gruppi alimentari</span><span class="chip">Perdita di peso</span><span class="chip">Lesioni ossee da stress</span><span class="chip">Sincope, bradicardia</span></div>
+<div class="tip">Il peso non è la performance: il problema può essere troppa energia (sovrappeso) o troppo poca (restrizione, RED-S).</div>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B3</span>Dal piatto al campo</summary><div class="bd">
+<div class="tbl"><table><tr><th>Quando</th><th>Cosa</th></tr><tr><td>2-4 ore prima</td><td>Pasto completo (piatto unico)</td></tr><tr><td>1-2 ore prima</td><td>Snack leggero (pane e marmellata, yogurt e frutta)</td></tr><tr><td>Poco prima</td><td>Piccola quota digeribile (frutto, crackers)</td></tr><tr><td>Durante</td><td>Generalmente acqua; sport drink con durata/intensità elevata, caldo</td></tr><tr><td>Dopo</td><td>Carboidrati + proteine + liquidi</td></tr></table></div>
+<ul><li>Non esiste una «dieta da calciatore»: esiste una sana alimentazione adattata ai carichi (Dieta Mediterranea, piatto di Harvard)</li><li>La «finestra anabolica» non deve diventare ansia</li><li>Fibre rosse (I) = resistenza; bianche (II) = forza e velocità. Nessun alimento le «trasforma»</li></ul>
+<h4>Match day</h4>
+<div class="flow"><div>Giorno prima: niente carbo-loading estremo, bere regolarmente</div><div><b>3-4 ore prima</b>: pasto ricco di carboidrati, digeribile, già sperimentato</div><div><b>30-90 minuti prima</b>: solo se serve, snack di carboidrati</div><div>Dopo: mangia, bevi, recupera</div></div>
+<div class="tip"><b>No agli esperimenti</b> il giorno della partita: niente nuovi integratori, pre-workout, digiuni, abbuffate di pasta.</div>
+</div></details>
+<details style="--k:var(--b)"><summary><span class="n">B4</span>Integratori, Ramadan, falsi miti</summary><div class="bd">
+<h4>Integratori (UEFA: «food first»)</h4>
+<ul><li>Nella maggior parte degli adolescenti la risposta è <b>NO</b></li><li><b>5 domande</b>: carenza documentata? non copro col cibo? effetto dimostrato? lo prendo perché «lo prendono tutti»? chi me l’ha consigliato (TikTok non basta)?</li><li>Proteine in polvere non sono «muscoli in polvere». Creatina: ben studiata, ma non per l’adolescente perché «la prendono tutti»</li></ul>
+<h4>Ramadan</h4>
+<ul><li><b>Suhoor</b> (prima dell’alba): non saltarlo, denso e con liquidi</li><li><b>Iftar</b>: liquidi + carboidrati digeribili (acqua + datteri) → piccolo pasto → allenamento → pasto di recupero</li><li>Allenarsi dopo l’Iftar, evitare l’intenso nelle ore calde a digiuno, proteggere il sonno</li><li><b>Fermarsi</b> se: capogiri, cefalea, debolezza, nausea, confusione, disidratazione. Non incentivare a «resistere»</li></ul>
+<h4>Falsi miti</h4>
+<div class="chips"><span class="chip">«La pasta fa ingrassare»</span><span class="chip">«Più magro = più veloce»</span><span class="chip">«Le ragazze devono mangiare meno»</span><span class="chip">«Senza carne non si fa sport»</span><span class="chip">«Niente carboidrati per definirsi»</span><span class="chip">«Se è magro mangia bene»</span></div>
+<p>Tutti falsi. Latte: non obbligatorio ma da non demonizzare. Il digiuno non va proposto agli adolescenti sportivi.</p>
+</div></details>
+</section>
+
+<section id="c">
+<details style="--k:var(--d)" open><summary><span class="n">C1</span>Modello e livelli di prevenzione</summary><div class="bd">
+<div class="flow"><div><b>Primaria</b>: evitare il primo infortunio</div><div><b>Secondaria</b>: evitare che un piccolo problema diventi grande (contrattura → lesione)</div><div><b>Terziaria</b>: prevenire le recidive</div></div>
+<ul><li>Eziologia <b>multifattoriale</b>, approccio multidisciplinare</li><li>L’allenatore è la figura chiave; uno stile che stimola cooperazione e fiducia riduce gli infortuni gravi</li><li><b>Injury burden</b> = incidenza × severità (giorni di assenza/1000 ore)</li><li>Premier League: 276 giorni persi ≈ 1 posizione in meno; ≈ 45 milioni di sterline a stagione per squadra</li></ul>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C2</span>Classificazione ed epidemiologia</summary><div class="bd">
+<div class="tbl"><table><tr><th>Severità</th><th>Giorni di assenza</th></tr><tr><td>Lievi</td><td>1-3</td></tr><tr><td>Minori</td><td>4-7</td></tr><tr><td>Moderati</td><td>8-28</td></tr><tr><td>Gravi</td><td>oltre 28</td></tr></table></div>
+<ul><li><b>Meccanismo</b>: trauma diretto, trauma indiretto (senza contatto), microtraumi ripetuti</li><li>Giovanile: rischio molto alto; ogni stagione quasi metà della rosa salta allenamenti o partite per infortunio</li><li>La maggior parte è prevenibile: avviene senza contatto, per fattori modificabili</li></ul>
+<h4>Fattori di rischio</h4>
+<div class="chips"><span class="chip">Non modificabili: <b>età, sesso, infortuni precedenti, arto dominante</b></span><span class="chip">Modificabili: <b>flessibilità, forza, qualità del movimento, psicologia, carichi</b></span></div>
+<h4>Test e deficit di forza</h4>
+<ul><li>Salti: SJ, CMJ, DVJ · Hop test: single leg, triple, crossover, 6-m timed (con LSI)</li><li>Qualità del movimento: LESS, LEFT, Tuck Jump</li><li>Aerobico: Cooper, Léger, Conconi, Yo-Yo</li></ul>
+<div class="tbl"><table><tr><th>Deficit</th><th>%</th></tr><tr><td>Minimo</td><td>&lt;10</td></tr><tr><td>Lieve</td><td>10-24</td></tr><tr><td>Moderato</td><td>25-49</td></tr><tr><td>Grave</td><td>51-75</td></tr><tr><td>Gravissimo</td><td>&gt;75</td></tr></table></div>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C3</span>Legamento crociato anteriore (LCA)</summary><div class="bd">
+<div class="chips"><span class="chip">Contatto diretto</span><span class="chip">Contatto indiretto</span><span class="chip"><b>Non contatto</b> (≈44-54%)</span></div>
+<ul><li>Situazioni: pressing/tackling (≈47%), tackled, atterraggio, recupero dell’equilibrio</li><li>Piano frontale: scarso controllo del tronco, <b>ginocchio in valgo</b></li><li>Piano sagittale: tronco eretto, anca e ginocchio poco flessi, pattern rigido</li><li>Atterraggio: forze di <b>2-3 volte il peso corporeo</b> in corsa, fino a 4-6 volte in altre azioni</li></ul>
+<h4>Come intervenire</h4>
+<div class="flow"><div>Valutare con LESS/LEFT/TJA</div><div>Movimenti funzionali di base (squat), poi sovraccarichi</div><div>Atterraggio senza fase di volo, poi con fase di volo</div><div>Prima bipodalico, poi monopodalico</div></div>
+<ul><li><b>Core</b>: un tilt del tronco aumenta il knee abduction moment (KAM). Stabilizzatori locali (plank, glute bridge), globali (Paloff press), load transfer</li><li>Apprendimento motorio: fase cognitiva (poche ripetizioni di qualità) → associativa (molte ripetizioni) → automatizzazione (senza istruzioni, external focus)</li></ul>
+</div></details>
+<details style="--k:var(--d)"><summary><span class="n">C4</span>Infortuni muscolari (hamstring)</summary><div class="bd">
+<div class="chips"><span class="chip"><b>83%</b> senza contatto</span><span class="chip">Corsa/accelerazione <b>34%</b></span><span class="chip">Stretching chiuso 20%, aperto 18%</span><span class="chip">Calciare 16%</span></div>
+<h4>6 punti di prevenzione</h4>
+<div class="tbl"><table><tr><th>#</th><th>Strategia</th><th>Nota</th></tr><tr><td>1</td><td>Esercizio eccentrico</td><td>Più sarcomeri in serie; recidive -65/85%</td></tr><tr><td>2</td><td>Corse ad alta velocità</td><td>1-2 volte a settimana al 95% della velocità di picco: il «vaccino»</td></tr><tr><td>3</td><td>Core stability</td><td>Correggere il tilt anteriore</td></tr><tr><td>4</td><td>Programmi combinati</td><td>Forza, controllo, flessibilità, aerobico</td></tr><tr><td>5</td><td>Controllo del movimento</td><td>Coordinazione, timing, passo</td></tr><tr><td>6</td><td>Ottimizzazione dei carichi</td><td>Aumento graduale; un rapido aumento = rischio ×6,4</td></tr></table></div>
+</div></details>
+</section>
+
+<section id="d">
+<details style="--k:var(--e)" open><summary><span class="n">D1</span>Tre vie energetiche</summary><div class="bd">
+<div class="tbl"><table><tr><th>Via</th><th>Caratteristiche</th></tr>
+<tr><td><b>Anaerobico alattacido</b></td><td>Fosfocreatina. Sforzi brevi, intensi, esplosivi. Qualità = <b>potenza</b></td></tr>
+<tr><td><b>Anaerobico lattacido</b></td><td>Glicolisi anaerobica, 3 ATP. Si forma acido lattico (ciclo di Cori). Qualità = resistenza lattacida</td></tr>
+<tr><td><b>Aerobico</b></td><td>Glicolisi aerobica, 39 ATP per mole di glicogeno. Ciclo di Krebs. Sport di resistenza</td></tr></table></div>
+<ul><li>L’ATP è il carburante cellulare e va risintetizzato di continuo</li><li>In ogni sforzo la VO2 non è mai 0 e il lattato è sempre prodotto</li><li>In un esercizio massimale la via aerobica diventa dominante dopo <b>60-90 secondi</b></li><li><b>Calcio</b> = sport aerobico-anaerobico <b>alternato</b> (come basket, rugby, pallanuoto)</li></ul>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D2</span>VO2max, soglia, FATmax</summary><div class="bd">
+<ul><li><b>VO2max</b>: massima quantità di ossigeno assunta, trasportata e utilizzata (l/min o ml/kg/min)</li><li><b>1 MET</b> ≈ 3,5 ml O2/min/kg (metabolismo di riposo)</li><li><b>Soglia anaerobica</b>: massima intensità sostenibile con i soli meccanismi aerobici; lattato prodotto = lattato smaltito. Più del VO2max è l’indice di capacità di lavoro prolungato. Riferimento: <b>4 mmol/l</b></li><li>Il lattato si accumula a una VO2 tra <b>60 e 85%</b> del VO2max</li><li><b>FATmax</b>: intensità di massima ossidazione dei grassi</li></ul>
+<div class="tbl"><table><tr><th>Prova</th><th>Aerobico / anaerobico</th></tr><tr><td>100 m</td><td>&lt;5 / &gt;95</td></tr><tr><td>400 m</td><td>25 / 75</td></tr><tr><td>800 m</td><td>50 / 50</td></tr><tr><td>1500 m</td><td>65 / 35</td></tr><tr><td>Maratona</td><td>100 / 0</td></tr></table></div>
+<div class="tip">Sopra soglia: meccanismi anaerobici. Andature di soglia: potenza aerobica. Sotto soglia: recupero e meccanismo aerobico.</div>
+</div></details>
+<details style="--k:var(--e)"><summary><span class="n">D3</span>Fibre muscolari e allenamento</summary><div class="bd">
+<div class="tbl"><table><tr><th></th><th>Rosse / lente (Tipo I)</th><th>Bianche / rapide (Tipo II)</th></tr><tr><td>Velocità</td><td>max 17 mm/s</td><td>max 42 mm/s</td></tr><tr><td>Fatica</td><td>Alta resistenza</td><td>Bassa resistenza</td></tr><tr><td>Struttura</td><td>Piccole, capillarizzate, mitocondri</td><td>Grandi, poche mitocondri</td></tr><tr><td>Metabolismo</td><td>Ossidativo, grassi</td><td>Glicolitico, glicogeno</td></tr></table></div>
+<ul><li>Tipo IIA = intermedie (rosa); tipo IIB = più anaerobiche</li><li><b>Unità motoria</b> = motoneurone + assone + fibre; da 100-300 a 600-1700 fibre; attività del tutto o nulla</li><li>Contrazioni: isotonica <b>concentrica</b> (si accorcia), <b>eccentrica</b> (si allunga sviluppando tensione), isometrica, isocinetica</li><li>Obiettivo dell’allenamento: supercompensazione, adattamento ai carichi</li></ul>
+</div></details>
+</section>
+
+<section id="e">
+<details style="--k:var(--c)" open><summary><span class="n">E1</span>Fasi dell’accrescimento</summary><div class="bd">
+<div class="flow"><div><b>0-2 anni</b>: crescita rapidissima</div><div><b>2-6 anni</b>: ritmo costante</div><div><b>6-10/12 anni</b> (fanciullezza): crescita regolare, avviamento agli sport</div><div><b>10-25 anni</b>: adolescenza</div></div>
+<div class="chips"><span class="chip">Pubertà F: <b>8-13</b> anni (media 10-11)</span><span class="chip">Pubertà M: <b>9-14</b> (media 11-12)</span><span class="chip">Dura <b>2-5 anni</b></span></div>
+<ul><li>Principale fattore di crescita: <b>genetico</b>. Poi endocrini (GH, T3, T4, ormoni sessuali), nutrizionali, ambientali</li><li>Adolescenza: prima (10-14), media (14-17), tarda (18-25)</li><li>Si ferma con la chiusura delle cartilagini di accrescimento</li></ul>
+</div></details>
+<details style="--k:var(--c)"><summary><span class="n">E2</span>Auxologia ed età</summary><div class="bd">
+<ul><li><b>Auxologia</b>: studia crescita e sviluppo fisico per evidenziare anomalie</li><li>Strumenti: infantometro, altimetro, plicometro, <b>DXA</b> (massa grassa e magra), scala di <b>Tanner</b></li><li><b>Percentili</b>: 50° = media; 10° = più basso del 90% dei coetanei; 90° = più alto del 90%</li><li>Portieri e difensori centrali spesso sopra l’85° percentile d’altezza</li><li><b>Relative age effect</b>: vantaggio di chi nasce nei primi mesi dell’anno</li></ul>
+<div class="chips"><span class="chip"><b>Cronologica</b>: dalla nascita</span><span class="chip"><b>Biologica</b>: radiografia di mano e polso sinistro</span><span class="chip"><b>Cognitiva</b>: capacità mentali</span></div>
+</div></details>
+<details style="--k:var(--c)"><summary><span class="n">E3</span>Crescita muscolo-scheletrica</summary><div class="bd">
+<div class="flow"><div>Prima lo <b>scheletro</b> (mani e piedi, poi braccia e gambe, infine busto)</div><div>Poi i <b>muscoli</b>: picco più tardivo e più marcato nei maschi (testosterone)</div></div>
+<ul><li>Il «gap» può causare deficit di coordinazione, dolori di crescita, più patologie muscolo-tendinee</li><li>Dopo la pubertà: maschio ha massa magra ×1,5, femmina massa grassa ×2</li><li><b>Ritardo costituzionale</b>: più frequente nei maschi (15%) che nelle femmine (2-3%)</li><li>La forza aumenta di più <b>1 anno dopo il picco</b> (M), <b>6 mesi dopo</b> (F)</li><li>Adolescenti: camere cardiache più piccole, ma FC max superiore (215 a 15 anni vs 195 a 20)</li></ul>
+</div></details>
+<details style="--k:var(--c)"><summary><span class="n">E4</span>Apofisiti e distacchi</summary><div class="bd">
+<ul><li><b>Apofisi</b>: inserzione di tendini e muscoli, ha un nucleo di accrescimento proprio. La trazione continua infiamma la cartilagine = apofisite</li><li>Cartilagine di accrescimento: temporanea, la parte più debole. Cartilagine <b>articolare</b>: permanente, senza vasi, non si rigenera</li></ul>
+<div class="tbl"><table><tr><th>Patologia</th><th>Sede</th><th>Note</th></tr>
+<tr><td><b>Osgood-Schlatter</b></td><td>Tendine rotuleo sulla tuberosità tibiale</td><td>Fino al 20% dei calciatori; benigno, si risolve con la pubertà, può residuare un «soprosso»</td></tr>
+<tr><td><b>Sinding-Larsen-Johansson</b></td><td>Tendine rotuleo, polo inferiore della rotula</td><td>Meno frequente, spesso associato</td></tr>
+<tr><td><b>Sever</b></td><td>Calcagno (tendine d’Achille)</td><td>8-13 anni; talloniere in gel, stretching del polpaccio</td></tr></table></div>
+<h4>Distacco apofisario (avulsione)</h4>
+<ul><li>Il <b>bacino</b> è la zona più interessata. Esordio acuto, dolore violento, impotenza funzionale</li><li><b>SIAI</b>: retto femorale · <b>SIAS</b>: sartorio/tensore · <b>tuberosità ischiatica</b>: ischiocrurali · <b>piccolo trocantere</b>: ileopsoas</li><li>Diagnosi: radiografia. Terapia quasi sempre conservativa (riposo, stampelle, tutore)</li></ul>
+<div class="tip"><b>Frattura della cartilagine di accrescimento</b>: può causare arresto della crescita (ponte osseo, dismetria). <b>Epifisiodesi</b> = blocco chirurgico della cartilagine dal lato opposto.</div>
+</div></details>
+<details style="--k:var(--c)"><summary><span class="n">E5</span>Dismorfismi e paramorfismi</summary><div class="bd">
+<div class="tbl"><table><tr><th></th><th>Dismorfismo</th><th>Paramorfismo</th></tr><tr><td>Natura</td><td>Patologico, <b>irreversibile</b>, strutturale</td><td>Benigno, <b>reversibile</b>, posturale</td></tr><tr><td>Scoliosi</td><td>Vera: rotazione vertebre, <b>non scompare in flessione</b></td><td>Atteggiamento scoliotico: scompare in flessione</td></tr><tr><td>Dismetria</td><td>Vera: differenza ossea reale</td><td>Falsa: bacino o tensioni muscolari</td></tr><tr><td>Terapia</td><td>Monitoraggio, corsetto, chirurgia</td><td>Ginnastica posturale, ergonomia</td></tr></table></div>
+<ul><li><b>Scoliosi</b>: 80% idiopatica, <b>8 volte</b> più frequente nelle femmine; non causata da posture scorrette</li><li><b>Ginocchio varo</b>: carico sul compartimento interno (menisco interno). <b>Valgo</b>: compartimento esterno</li><li><b>Piede cavo</b>: arco alto, predispone a distorsioni di caviglia. <b>Piede piatto</b>: fisiologico fino a 3-4 anni; da valutare dopo 6-7 anni</li><li><b>Ipercifosi</b>: oltre 45°. Iperlordosi lombare: oltre 40-50° può dare dolore</li><li><b>Dismetria</b>: fino a 1 cm è normale; oltre compaiono compensi</li></ul>
+</div></details>
+</section>
+
+<section id="num">
+<p class="hint">Tocca una carta per vedere la risposta. Le ultime sono le domande delle check list.</p>
+<div class="fc" id="fc"></div>
+</section>
+</main>
+<script>
+var S=[["mappa","Mappa"],["a","A Stili di vita"],["b","B Nutrizione"],["c","C Infortuni"],["d","D Energia"],["e","E Crescita"],["num","Flashcard"]];
+var nav=document.getElementById("nav");
+S.forEach(function(s){var b=document.createElement("button");b.textContent=s[1];b.dataset.k=s[0];b.onclick=function(){location.hash=s[0]};nav.appendChild(b)});
+function show(){var h=(location.hash||"#mappa").slice(1);if(!document.getElementById(h))h="mappa";
+S.forEach(function(s){document.getElementById(s[0]).classList.toggle("on",s[0]===h)});
+nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.k===h)});window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+var Q=[["Alcol in un bicchiere standard · kcal/g","12 g · 7 kcal/g"],["Smaltimento alcol (70 kg)","7 g all’ora"],["Alcolemia 0,5 g/l","Rischio di incidente ×10"],["Alcol: tumori · Sedentarietà: tumori","Almeno 9 · 13 tipi"],["Fumo: quota di tumori · 20 sigarette","30% · 4,6 anni di vita in meno"],["Pasto completo · snack prima dell’allenamento","2-4 ore · 1-2 ore"],["Match day: pasto · spuntino","3-4 ore prima · 30-90 minuti prima"],["Domande prima di un integratore","5"],["Livelli di prevenzione infortuni","Primaria, secondaria, terziaria"],["Infortuni: lievi · minori · moderati · gravi","1-3 · 4-7 · 8-28 · oltre 28 giorni"],["Injury burden","Incidenza × severità (giorni/1000 h)"],["Hamstring senza contatto","83%"],["Corse ad alta velocità","1-2 volte a settimana al 95% del picco"],["Forze all’atterraggio","2-3 × BW in corsa, fino a 4-6 × BW"],["Glicolisi anaerobica · aerobica","3 ATP · 39 ATP"],["Via aerobica dominante dopo","60-90 secondi"],["Lattato si accumula a","60-85% del VO2max (riferimento 4 mmol/l)"],["800 m: aerobico/anaerobico","50 / 50"],["Fibre rosse · bianche: velocità","17 mm/s · 42 mm/s"],["Pubertà femminile · maschile","8-13 · 9-14 anni (durata 2-5)"],["Ritardo costituzionale M · F","15% · 2-3%"],["Massa magra M · massa grassa F","×1,5 · ×2"],["FC max a 15 anni · a 20 anni","215 · 195"],["Forza dopo il picco di crescita","+1 anno (M), +6 mesi (F)"],["Osgood-Schlatter nei calciatori","Fino al 20%"],["Sever: età","8-13 anni"],["Scoliosi: idiopatica · F vs M","80% · 8 volte più frequente"],["Ipercifosi · iperlordosi lombare","Oltre 45° · oltre 40-50°"],["Dismetria normale","Fino a 1 cm"],["Piede piatto: quando valutare","Dopo i 6-7 anni"],["Cosa significa il 60° percentile d’altezza a 12 anni?","Più alto del 60% dei coetanei"],["Dove si fa la radiografia per l’età ossea?","Mano e polso sinistro"],["Qual è la cartilagine permanente?","L’articolare"],["Dove avvengono più spesso i distacchi apofisari?","Bacino"],["Il distacco della SIAI è dovuto a quale muscolo?","Retto femorale"],["Cos’è l’epifisiodesi?","Blocco chirurgico della cartilagine di accrescimento"],["I paramorfismi sono reversibili?","Sì"],["Il piede cavo predispone alle distorsioni di caviglia?","Sì"]];
+var fc=document.getElementById("fc");
+Q.forEach(function(q){var b=document.createElement("button");var s=document.createElement("small");s.textContent=q[0];var t=document.createElement("strong");t.textContent=q[1];b.appendChild(s);b.appendChild(t);b.onclick=function(){b.classList.toggle("on")};fc.appendChild(b)});
+</script>
+<script src="tts.js"></script></body></html>

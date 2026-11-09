@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="it"><head><title>Simulazioni d’esame</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#1f6feb"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Studio UEFA C">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7f9;--card:#fff;--tx:#1b1f24;--mut:#5d6672;--bd:#dfe3e8;--a:#1f6feb;--ok:#2da44e;--ko:#c2397a;--wa:#d4731a}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#e8ecf1;--mut:#9aa5b1;--bd:#2a323d;--a:#5b9bff;--ok:#4cc26b;--ko:#ee6fa8;--wa:#f0993f}}
+*,*::before,*::after{box-sizing:inherit}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:14px}h1{font-size:1.3rem;margin:4px 0 6px}h2{font-size:1.1rem;margin:10px 0}h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);margin:18px 0 8px}
+.m{color:var(--mut);font-size:.88rem}a{color:var(--a)}
+button{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;width:100%;text-align:left;margin:0 0 8px}
+button.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:600}button:disabled{opacity:.4}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g2 button{margin:0;text-align:center}
+.card{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;padding:11px 13px;margin:0 0 8px}.card b{display:block}.card span{font-size:.84rem;color:var(--mut)}
+</style>
+</head><body><style>.bar{display:flex;gap:8px;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:6px 0;font-weight:600}.sm{width:auto;margin:0;padding:8px 12px}
+.opt{display:block}.opt b{display:inline-block;width:24px;color:var(--a)}.opt.sel{border-color:var(--a);background:color-mix(in srgb,var(--a) 14%,var(--card))}.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 20%,var(--card))}.opt.ko{border-color:var(--ko);background:color-mix(in srgb,var(--ko) 20%,var(--card))}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}.nav button{text-align:center}
+.dots{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.dots i{font-style:normal;font-size:.72rem;width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--bd);border-radius:7px;background:var(--card)}.dots i.dn{background:color-mix(in srgb,var(--a) 25%,var(--card))}.dots i.cur{outline:2px solid var(--a)}
+.big{font-size:2.4rem;font-weight:700;margin:6px 0}.pass{color:var(--ok)}.fail{color:var(--ko)}
+.bl{margin:10px 0}.bl .t{display:flex;justify-content:space-between;font-size:.9rem}.bl .tr{position:relative;height:14px;background:var(--bd);border-radius:7px;margin-top:4px}.bl .fi{height:100%;border-radius:7px}.bl .ln{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--tx);left:60%}
+.rv{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;margin:0 0 8px;font-size:.92rem}.rv .w{color:var(--ko)}.rv .c{color:var(--ok)}
+</style>
+<main id="app"></main>
+<script src="bank.js"></script>
+<script>
+var app=document.getElementById("app");
+function e(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+var BL={medicina:"Medicina",regolamento:"Regolamento",carte:"Carte federali",altri:"Altri argomenti"},OR=["medicina","regolamento","carte","altri"];
+var st;try{st=JSON.parse(localStorage.getItem("uc_st"))}catch(x){}st=st||{seen:{},hist:[]};
+function save(){try{localStorage.setItem("uc_st",JSON.stringify(st))}catch(x){}}
+var NUM=/^[\d<>≈~+\-−]/;
+function pick(c,pool){var a=c.a,n=NUM.test(a);var s=pool.filter(function(x){return x.a!==a&&x.q!==c.q&&a.indexOf(x.a)<0&&x.a.indexOf(a)<0}).map(function(x){return{x:x,k:(NUM.test(x.a)===n?0:2)+Math.abs(Math.log((x.a.length+3)/(a.length+3)))+(x.m===c.m?-1.2:0)+Math.random()*.9}}).sort(function(p,q){return p.k-q.k});var o=[],u={};for(var i=0;i<s.length&&o.length<3;i++){var t=s[i].x.a;if(!u[t]){u[t]=1;o.push(t)}}return o}
+function mk(c,pool){var o=sh([c.a].concat(pick(c,pool)));return{id:c.id,b:c.b,m:c.m,t:c.t,q:/\?$/.test(c.q)?c.q:c.q.replace(/[:.]+$/,"")+" — qual è la risposta corretta?",a:c.a,o:o,r:o.indexOf(c.a),u:-1}}
+function draw(cards,n){return sh(cards.map(function(c){return{c:c,s:(st.seen[c.id]||0)+Math.random()}}).sort(function(x,y){return x.s-y.s}).slice(0,n).map(function(x){return x.c}))}
+function poolOf(b){return BANK.filter(function(c){return c.b===b})}
+var Q=[],i=0,mode="",imm=false,t0=0,tot=0,iv=null,lab="";
+function start(m){mode=m;imm=m==="quick";i=0;t0=Date.now();tot=m==="full"?4500:m==="quick"?0:1140;
+if(m==="full"){Q=[];OR.forEach(function(b){var p=poolOf(b);draw(p,15).forEach(function(c){Q.push(mk(c,p))})});lab="Simulazione completa"}
+else if(m==="quick"){Q=draw(BANK,10).map(function(c){return mk(c,poolOf(c.b))});lab="Allenamento rapido"}
+else{var p=poolOf(m);Q=draw(p,15).map(function(c){return mk(c,p)});lab="Blocco "+BL[m]}
+clearInterval(iv);iv=setInterval(tick,1000);view()}
+function tick(){var el=document.getElementById("tm");if(!el)return;if(!tot){el.textContent="Allenamento";return}var r=Math.round(tot-(Date.now()-t0)/1000);if(r<=0){fin(false);return}el.textContent="⏱ "+Math.floor(r/60)+":"+("0"+r%60).slice(-2)}
+function view(){var q=Q[i],dn=Q.filter(function(x){return x.u>=0}).length;
+app.innerHTML='<div class="bar"><span id="tm"></span><span>Risposte '+dn+'/'+Q.length+'</span><button class="sm" onclick="fin(true)">Consegna</button></div><div class="m">'+BL[q.b]+' · domanda '+(i+1)+'/'+Q.length+'</div><h2>'+e(q.q)+'</h2>'+
+q.o.map(function(o,k){var cl="opt";if(q.u===k)cl+=" sel";if(imm&&q.u>=0){if(k===q.r)cl+=" ok";else if(k===q.u)cl+=" ko"}return'<button class="'+cl+'" onclick="ans('+k+')"><b>'+"ABCD"[k]+'</b> '+e(o)+'</button>'}).join("")+
+'<div class="nav"><button '+(i?"":"disabled")+' onclick="go(-1)">← Indietro</button><button '+(i<Q.length-1?"":"disabled")+' onclick="go(1)">Avanti →</button></div><div class="dots">'+Q.map(function(x,k){return'<i class="'+(k===i?"cur ":"")+(x.u>=0?"dn":"")+'" onclick="jump('+k+')">'+(k+1)+'</i>'}).join("")+'</div>';tick()}
+function ans(k){var q=Q[i];if(imm&&q.u>=0)return;q.u=k;view()}
+function go(d){i+=d;view();window.scrollTo(0,0)}function jump(k){i=k;view();window.scrollTo(0,0)}
+var R=null;
+function fin(ask){if(ask){var un=Q.filter(function(x){return x.u<0}).length;if(!confirm(un?"Hai "+un+" domande senza risposta. Consegnare la prova?":"Consegnare la prova?"))return}
+clearInterval(iv);var pb={};OR.forEach(function(b){pb[b]={n:0,s:0}});
+Q.forEach(function(q){pb[q.b].n++;if(q.u===q.r)pb[q.b].s++;st.seen[q.id]=(st.seen[q.id]||0)+1});
+var s=Q.filter(function(q){return q.u===q.r}).length,used=Math.round((Date.now()-t0)/1000),bl=OR.filter(function(b){return pb[b].n}),ok=null;
+if(mode!=="quick")ok=bl.every(function(b){return pb[b].s>=Math.ceil(pb[b].n*.6)});
+st.hist.push({d:new Date().toLocaleDateString("it-IT"),k:lab,s:s,n:Q.length,ok:ok});st.hist=st.hist.slice(-30);save();R={pb:pb,bl:bl};
+var h='<h1>'+lab+'</h1><div class="m">Tempo impiegato: '+Math.floor(used/60)+' min '+used%60+' s</div><div class="big">'+s+' / '+Q.length+'</div>';
+if(ok!==null)h+='<h2 class="'+(ok?"pass":"fail")+'">'+(ok?"Prova superata":"Prova non superata")+'</h2><p class="m">Si supera con almeno 9 risposte corrette su 15 in ciascun blocco: non basta il totale.</p>';
+h+=bl.map(function(b){var p=pb[b],g=p.s>=Math.ceil(p.n*.6);return'<div class="bl"><div class="t"><span>'+BL[b]+'</span><b class="'+(g?"pass":"fail")+'">'+p.s+'/'+p.n+(g?" ✓":" ✗")+'</b></div><div class="tr"><div class="fi" style="width:'+Math.round(p.s/p.n*100)+'%;background:var(--'+(g?"ok":"ko")+')"></div><span class="ln"></span></div></div>'}).join("");
+h+='<div style="margin-top:14px"><button class="pri" onclick="rev()">Rivedi gli errori</button><button onclick="menu()">Nuova simulazione</button><a href="index.html">← Indice</a></div>';app.innerHTML=h;window.scrollTo(0,0)}
+function rev(){var w=Q.filter(function(q){return q.u!==q.r});app.innerHTML='<h1>Errori e domande senza risposta</h1><p class="m">'+w.length+' da rivedere. Tocca il modulo per ripassare la mappa.</p>'+(w.length?w.map(function(q){return'<div class="rv"><b>'+e(q.q)+'</b><br>'+(q.u>=0?'<span class="w">La tua risposta: '+e(q.o[q.u])+'</span><br>':'<span class="w">Nessuna risposta</span><br>')+'<span class="c">Corretta: '+e(q.a)+'</span><br><a href="'+q.m+'">'+e(q.t)+'</a></div>'}).join(""):'<p>Nessun errore: ottimo!</p>')+'<button class="pri" onclick="menu()">Nuova simulazione</button>';window.scrollTo(0,0)}
+function menu(){var hs=st.hist.slice(-5).reverse();
+app.innerHTML='<h1>Simulazioni d’esame</h1><p class="m">Come l’esame reale: risposta multipla con una sola risposta corretta, 60 domande in 75 minuti, 4 blocchi da 15. Le domande cambiano a ogni prova.</p><button class="pri" onclick="start(\'full\')">Simulazione completa<br><small>60 domande · 75 minuti</small></button><h3>Un blocco alla volta · 15 domande · 19 minuti</h3><div class="g2">'+OR.map(function(b){return'<button onclick="start(\''+b+'\')">'+BL[b]+'</button>'}).join("")+'</div><h3>Ripasso</h3><button onclick="start(\'quick\')">Allenamento rapido<br><small>10 domande miste, correzione subito dopo ogni risposta</small></button>'+(hs.length?'<h3>Ultimi risultati</h3>'+hs.map(function(x){return'<div class="rv">'+e(x.d)+' · '+e(x.k)+' · <b>'+x.s+'/'+x.n+'</b>'+(x.ok===null?"":x.ok?' · <span class="c">superata</span>':' · <span class="w">non superata</span>')+'</div>'}).join(""):"")+'<p><a href="index.html">← Indice</a> · <a href="guida.html">Guida all’esame</a></p>'}
+menu();
+</script>
+<script>if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js")</script></body></html>
