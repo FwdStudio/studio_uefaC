@@ -7,7 +7,8 @@ var css=document.createElement("style");
 css.textContent="#tb{position:fixed;left:0;right:0;bottom:0;z-index:99;display:flex;gap:6px;align-items:center;justify-content:center;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));background:rgba(20,24,30,.94);color:#fff;font:15px -apple-system,system-ui,sans-serif}#tb button,#tb a,#tb select{border:0;border-radius:10px;padding:10px 12px;font:inherit;background:#2f3a48;color:#fff;text-decoration:none}#tb .p{background:#1f6feb;font-weight:600}#tb span{font-size:.8rem;opacity:.8}body{padding-bottom:84px}";
 document.head.appendChild(css);
 var b=document.createElement("div");b.id="tb";
-b.innerHTML='<a href="index.html" title="Indice">⌂</a><button class="p" id="t1">🔊 Ascolta</button><button id="t2">Tutto il modulo</button><button id="t3">■</button><select id="t4"><option value="0.85">0,85×</option><option value="1">1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select><span id="t5"></span>';
+var f=location.pathname.split("/").pop()||"",x="";if(/^mappa-/.test(f))x='<a href="'+f.replace("mappa-","testo-")+'" title="Testo completo">📄</a>';else if(/^testo-/.test(f))x='<a href="'+f.replace("testo-","mappa-")+'" title="Mappa">🗺</a>';
+b.innerHTML='<a href="index.html" title="Indice">⌂</a>'+x+'<button class="p" id="t1">🔊 Ascolta</button><button id="t2">Tutto il modulo</button><button id="t3">■</button><select id="t4"><option value="0.85">0,85×</option><option value="1">1×</option><option value="1.15">1,15×</option><option value="1.3">1,3×</option></select><span id="t5"></span>';
 document.body.appendChild(b);
 var $=function(i){return document.getElementById(i)};$("t4").value=String(rate);
 function norm(t){return t.replace(/%/g," per cento").replace(/×/g," per ").replace(/→/g,", poi ").replace(/≥/g," almeno ").replace(/≤/g," al massimo ").replace(/≈/g," circa ").replace(/°/g," gradi").replace(/&/g," e ").replace(/\s+/g," ").trim()}
