@@ -19,7 +19,7 @@ button.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:600}
 .rv{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;margin:0 0 8px;font-size:.92rem}.rv .w{color:var(--ko)}.rv .c{color:var(--ok)}
 </style>
 <main id="app"></main>
-<script src="bank.js"></script>
+<script src="qbank.js"></script>
 <script>
 var app=document.getElementById("app");
 function e(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -27,16 +27,16 @@ function sh(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.r
 var BL={medicina:"Medicina",regolamento:"Regolamento",carte:"Carte federali",altri:"Altri argomenti"},OR=["medicina","regolamento","carte","altri"];
 var st;try{st=JSON.parse(localStorage.getItem("uc_st"))}catch(x){}st=st||{seen:{},hist:[]};
 function save(){try{localStorage.setItem("uc_st",JSON.stringify(st))}catch(x){}}
-var NUM=/^[\d<>≈~+\-−]/;
-function pick(c,pool){var a=c.a,n=NUM.test(a);var s=pool.filter(function(x){return x.a!==a&&x.q!==c.q&&a.indexOf(x.a)<0&&x.a.indexOf(a)<0}).map(function(x){return{x:x,k:(NUM.test(x.a)===n?0:2)+Math.abs(Math.log((x.a.length+3)/(a.length+3)))+(x.m===c.m?-1.2:0)+Math.random()*.9}}).sort(function(p,q){return p.k-q.k});var o=[],u={};for(var i=0;i<s.length&&o.length<3;i++){var t=s[i].x.a;if(!u[t]){u[t]=1;o.push(t)}}return o}
-function mk(c,pool){var o=sh([c.a].concat(pick(c,pool)));return{id:c.id,b:c.b,m:c.m,t:c.t,q:/\?$/.test(c.q)?c.q:c.q.replace(/[:.]+$/,"")+" — qual è la risposta corretta?",a:c.a,o:o,r:o.indexOf(c.a),u:-1}}
-function draw(cards,n){return sh(cards.map(function(c){return{c:c,s:(st.seen[c.id]||0)+Math.random()}}).sort(function(x,y){return x.s-y.s}).slice(0,n).map(function(x){return x.c}))}
-function poolOf(b){return BANK.filter(function(c){return c.b===b})}
+function BK(k){return k==="carte"?"carte":k==="reg"?"regolamento":k==="med"?"medicina":"altri"}
+function mk(p){var x=p[0],o=sh([x[2],x[3],x[4],x[5]]);return{id:"q"+p[1],b:BK(x[0]),m:MF[x[0]][0],t:MF[x[0]][1],q:x[1],a:x[2],o:o,r:o.indexOf(x[2]),u:-1}}
+function allQ(){return QB.map(function(x,i){return[x,i]})}
+function poolOf(b){return allQ().filter(function(p){return BK(p[0][0])===b})}
+function draw(ps,n){return sh(ps.map(function(p){return{p:p,s:(st.seen["q"+p[1]]||0)+Math.random()}}).sort(function(a,b){return a.s-b.s}).slice(0,n).map(function(o){return o.p}))}
 var Q=[],i=0,mode="",imm=false,t0=0,tot=0,iv=null,lab="";
-function start(m){mode=m;imm=m==="quick";i=0;t0=Date.now();tot=m==="full"?4500:m==="quick"?0:1140;
-if(m==="full"){Q=[];OR.forEach(function(b){var p=poolOf(b);draw(p,15).forEach(function(c){Q.push(mk(c,p))})});lab="Simulazione completa"}
-else if(m==="quick"){Q=draw(BANK,10).map(function(c){return mk(c,poolOf(c.b))});lab="Allenamento rapido"}
-else{var p=poolOf(m);Q=draw(p,15).map(function(c){return mk(c,p)});lab="Blocco "+BL[m]}
+function start(m){mode=m;imm=m==="quick";i=0;t0=Date.now();tot=m==="full"?4500:m==="quick"?0:1140;Q=[];
+if(m==="full"){OR.forEach(function(b){draw(poolOf(b),15).forEach(function(p){Q.push(mk(p))})});lab="Simulazione completa"}
+else if(m==="quick"){draw(allQ(),10).forEach(function(p){Q.push(mk(p))});lab="Allenamento rapido"}
+else{draw(poolOf(m),15).forEach(function(p){Q.push(mk(p))});lab="Blocco "+BL[m]}
 clearInterval(iv);iv=setInterval(tick,1000);view()}
 function tick(){var el=document.getElementById("tm");if(!el)return;if(!tot){el.textContent="Allenamento";return}var r=Math.round(tot-(Date.now()-t0)/1000);if(r<=0){fin(false);return}el.textContent="⏱ "+Math.floor(r/60)+":"+("0"+r%60).slice(-2)}
 function view(){var q=Q[i],dn=Q.filter(function(x){return x.u>=0}).length;
