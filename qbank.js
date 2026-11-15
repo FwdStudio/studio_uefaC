@@ -1,5 +1,17 @@
 var MF={carte:["mappa-carte-federali.html","Carte federali"],reg:["mappa-regolamento-gioco.html","Regolamento di gioco"],med:["mappa-medicina-sport.html","Medicina dello sport"],tec:["mappa-tecnica-tattica.html","Tecnica e tattica"],fis:["mappa-preparazione-fisica.html","Preparazione fisico-atletica"],por:["mappa-portiere.html","Il portiere"],fut:["mappa-futsal.html","Il futsal"],fem:["mappa-calcio-femminile.html","Il calcio femminile"],aia:["mappa-aiac.html","L’AIAC"],saf:["mappa-safeguarding.html","Safeguarding"],psi:["mappa-psicologia-sport.html","Psicologia dello sport"]};
 var QB=[
+["med","Secondo la lezione, quale percentuale dei tumori è prevenibile con stili di vita sani?","Circa il 40%","Circa il 10%","Circa il 70%","Circa il 90%"],
+["med","Nell’atterraggio da un salto le forze sul ginocchio possono arrivare a:","6-8 volte il peso corporeo","1-2 volte il peso corporeo","2-3 volte il peso corporeo","20 volte il peso corporeo"],
+["med","Negli infortuni agli hamstring, quale fase della corsa ad alta velocità è la più critica?","La late swing, prima dell’appoggio del piede","La fase di spinta","L’appoggio iniziale","La partenza da fermo"],
+["med","Nello studio di Mendiguchia (2020), quale gruppo ha migliorato sprint, forza orizzontale e architettura muscolare?","Calcio più Nordic Hamstring","Solo calcio","Calcio più stretching passivo","Calcio più corsa lenta continua"],
+["med","Dopo un distacco apofisario, quanto tempo serve in genere per il ritorno agonistico pieno?","2-3 mesi","2-3 settimane","6-8 mesi","Più di un anno"],
+["med","A quale quota della spesa energetica giornaliera corrisponde il metabolismo a riposo?","60-75%","15-30%","10%","90%"],
+["med","Per quanto tempo al massimo il meccanismo anaerobico alattacido sostiene lo sforzo?","10-15 secondi","1-2 minuti","5-10 minuti","Circa un’ora"],
+["med","Quale proporzione indica il «piatto del mangiar sano»?","50% ortaggi e frutta, 50% carboidrati complessi e proteine sane","70% proteine e 30% verdura","50% carboidrati e 50% grassi","Metà piatto di carne e metà di dolci"],
+["med","Che cos’è il binge drinking?","Bere molto in poco tempo, ad esempio nel weekend o fuori dai pasti","Bere un bicchiere a ogni pasto","Bere solo superalcolici","Bere solo prima di una partita"],
+["med","Quale fattore di protezione solare è indicato per gli sportivi che si allenano all’aperto?","SPF 50+","SPF 10","SPF 15","SPF 20"],
+["med","Come si misura la dismetria degli arti inferiori?","Dalla spina iliaca antero-superiore al malleolo mediale","Dal trocantere al ginocchio","Dalla cresta iliaca alla pianta del piede senza scarpe","Solo con la radiografia"],
+["med","Qual è la terapia indicata per la sindrome di Sinding-Larsen-Johansson?","Sintomatica: ghiaccio, riposo, allungamento (no elettromedicali)","Intervento chirurgico","Elettromedicali in fase di accrescimento","Gesso per sei settimane"],
 ["med","Nella prevenzione oncologica, lo screening (diagnosi prima della comparsa dei sintomi) è un intervento di prevenzione:","secondaria","primaria","terziaria","quaternaria"],
 ["med","Quanti grammi di alcol contiene circa un bicchiere standard di vino, una lattina di birra o un bicchierino di superalcolico?","12 g","5 g","20 g","30 g"],
 ["med","Con un’alcolemia di 0,5 g/l il rischio di incidente stradale:","aumenta di 10 volte","raddoppia","non cambia in modo significativo","aumenta solo di notte"],
