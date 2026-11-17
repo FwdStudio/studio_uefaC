@@ -1,5 +1,15 @@
 var MF={carte:["mappa-carte-federali.html","Carte federali"],reg:["mappa-regolamento-gioco.html","Regolamento di gioco"],med:["mappa-medicina-sport.html","Medicina dello sport"],tec:["mappa-tecnica-tattica.html","Tecnica e tattica"],fis:["mappa-preparazione-fisica.html","Preparazione fisico-atletica"],por:["mappa-portiere.html","Il portiere"],fut:["mappa-futsal.html","Il futsal"],fem:["mappa-calcio-femminile.html","Il calcio femminile"],aia:["mappa-aiac.html","L’AIAC"],saf:["mappa-safeguarding.html","Safeguarding"],psi:["mappa-psicologia-sport.html","Psicologia dello sport"]};
 var QB=[
+["por","Quale qualifica serve per accedere al corso UEFA GK B?","La UEFA C","La UEFA B","La UEFA A","Nessuna qualifica"],
+["por","Quale qualifica serve per accedere al corso UEFA GK A?","La UEFA B","La UEFA C","La UEFA Pro","Nessuna qualifica"],
+["por","Dove e quando nasce il metodo PAGS?","A Coverciano, nel 2023","A Coverciano, nel 2014","A Madrid, nel 2019","A Roma, nel 1992"],
+["por","Nel metodo PAGS, quale fase apre l’allenamento?","Il Play","L’Analitico","Il Globale","La Squadra"],
+["por","In una seduta di 20 minuti con gli Allievi, come si ripartiscono i tempi del PAGS secondo la lezione?","5 Play, 5 Analitico, 10 Globale","10 Play, 5 Analitico, 5 Globale","5 Play, 10 Analitico, 5 Globale","7 per ciascuna fase"],
+["por","Con il portiere più giovane, quale distribuzione prevede il PAGS?","25% Play, 50% Analitico, 25% Globale","50% Play, 25% Analitico, 25% Globale","50% Globale, 25% Play, 25% Analitico","100% Analitico"],
+["por","Perché sono calate le uscite alte del portiere (-51%)?","Perché si costruisce sfruttando half-space e cut-back","Perché i portieri sono più bassi","Perché i cross sono vietati","Perché gli attaccanti sono più alti"],
+["por","Che cosa indica il termine sweeper-keeper secondo Nista?","Una lettura spazio-temporale su un raggio d’azione più esteso","Un portiere che gioca solo fuori dall’area","Un portiere che non para","Un difensore con i guanti"],
+["por","Quale feedback è preferibile dopo un’uscita in ritardo?","Descrittivo: «sei uscito in ritardo»","Di giudizio: «sei uscito male»","Silenzio per non esporlo","Una punizione in allenamento"],
+["por","Quale affermazione sulla scelta del ruolo di portiere è corretta?","La scelta deve partire dal bambino, mai essere imposta","Va deciso dall’allenatore in base alla statura","Va deciso dai genitori","Va assegnato a chi non sa giocare coi piedi"],
 ["fis","Nell’attività di base, quale quota del lavoro deve occupare il gioco secondo la formula pratica indicata?","Circa il 70%","Circa il 30%","Circa il 50%","Circa il 90%"],
 ["fis","Qual è il primo dei cinque principi dell’attività di base?","Il divertimento, con la partecipazione attiva","La tecnica analitica","La specializzazione precoce","La competizione"],
 ["fis","Perché il meccanismo aerobico non interviene subito all’inizio dello sforzo?","L’ossigeno deve essere trasportato ai muscoli e vanno aperti i vasi sanguigni","Perché consuma prima gli zuccheri","Perché si attiva solo con il caldo","Perché non ci sono mitocondri"],
@@ -144,7 +154,6 @@ var QB=[
 ["por","Quale svolta regolamentare del 1992 ha obbligato il portiere a giocare con i piedi?","Il retropassaggio","Il rinvio dal fondo","Il portiere-libero","Il fuorigioco passivo"],
 ["por","Quale svolta regolamentare del 2019 ha favorito la costruzione dal basso?","Il rinvio dal fondo con palla in gioco in area","Il retropassaggio","Il portiere-libero","La rimessa con i piedi"],
 ["por","Nel metodo PAGS, qual è l’unica fase davvero situazionale?","Squadra","Play","Analitico","Globale"],
-["por","Qual è il percorso dell’allenatore dei portieri?","Qualifiche UEFA C e B, poi UEFA Goalkeeper B → A","Solo il corso FIGC dedicato","Direttamente il Diploma UEFA Goalkeeper A","Nessuna qualifica specifica"],
 ["fut","A quale distanza dalla linea di porta si trova il dischetto del rigore nel futsal?","6 m","9 m","11 m","7 m"],
 ["fut","Nel futsal i tiri liberi si assegnano dopo il:","sesto fallo di squadra","quinto fallo","decimo fallo","terzo fallo"],
 ["fut","Nel futsal ogni tempo dura:","20 minuti effettivi","45 minuti","30 minuti effettivi","25 minuti non effettivi"],
