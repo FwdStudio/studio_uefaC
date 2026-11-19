@@ -1,5 +1,21 @@
-var MF={carte:["mappa-carte-federali.html","Carte federali"],reg:["mappa-regolamento-gioco.html","Regolamento di gioco"],med:["mappa-medicina-sport.html","Medicina dello sport"],tec:["mappa-tecnica-tattica.html","Tecnica e tattica"],fis:["mappa-preparazione-fisica.html","Preparazione fisico-atletica"],por:["mappa-portiere.html","Il portiere"],fut:["mappa-futsal.html","Il futsal"],fem:["mappa-calcio-femminile.html","Il calcio femminile"],aia:["mappa-aiac.html","L’AIAC"],saf:["mappa-safeguarding.html","Safeguarding"],psi:["mappa-psicologia-sport.html","Psicologia dello sport"]};
+var MF={par:["mappa-calcio-paralimpico.html","Calcio paralimpico"],carte:["mappa-carte-federali.html","Carte federali"],reg:["mappa-regolamento-gioco.html","Regolamento di gioco"],med:["mappa-medicina-sport.html","Medicina dello sport"],tec:["mappa-tecnica-tattica.html","Tecnica e tattica"],fis:["mappa-preparazione-fisica.html","Preparazione fisico-atletica"],por:["mappa-portiere.html","Il portiere"],fut:["mappa-futsal.html","Il futsal"],fem:["mappa-calcio-femminile.html","Il calcio femminile"],aia:["mappa-aiac.html","L’AIAC"],saf:["mappa-safeguarding.html","Safeguarding"],psi:["mappa-psicologia-sport.html","Psicologia dello sport"]};
 var QB=[
+["par","Quante ore dura il corso per allenatore paralimpico della DCP?","82 ore","58 ore","24 ore","100 ore"],
+["par","Come si ripartiscono le ore del corso per allenatore paralimpico?","58 online e 24 in presenza","24 online e 58 in presenza","41 online e 41 in presenza","70 online e 12 in presenza"],
+["par","Quante ore propedeutiche sono previste per chi non ha una qualifica UEFA?","16","8","24","32"],
+["par","Qual è l’errore più frequente di chi si avvicina al calcio paralimpico senza preparazione?","L’approccio pietistico","L’eccesso di rigore","Troppa tecnica","Troppe partite"],
+["par","Se la seduta va fuori binario, che cosa si fa per prima cosa?","Si semplifica subito, richiamando l’attenzione con un segnale chiaro","Si aumenta la difficoltà","Si prosegue come previsto","Si interrompe la seduta"],
+["par","Quali sono le quattro fasi del format di seduta proposto?","Attivazione tecnica, analitica, situazionale, gioco","Riscaldamento, corsa, tiri, defaticamento","Spiegazione, dimostrazione, ripetizione, verifica","Palleggi, passaggi, tiri, partita"],
+["par","Che cosa significa «doppio livello» in un esercizio?","Stesso esercizio: compito limitato per chi è in difficoltà e sfida in più per chi è autonomo","Due esercizi diversi in due campi","Due allenatori nella stessa seduta","Un esercizio a tempo doppio"],
+["par","Nel percorso ciclico di lavoro, dopo l’osservazione sul campo si:","predispongono obiettivi tangibili","chiude il percorso","cambia atleta","valutano solo i risultati"],
+["par","Quale aspetto, spesso trascurato, va considerato all’arrivo dell’atleta?","La sua condizione emotiva","La sua altezza","Il numero di maglia","Il tipo di scarpe"],
+["par","Dal «non può» si passa al:","«non ancora»","«non voglio»","«non devo»","«forse»"],
+["par","Dal «vieni con me» si passa a:","«sto qui con te»","«fai da solo»","«seguimi»","«vai avanti»"],
+["par","Nella conduzione palla a bassa funzionalità si lavora con:","conduzione libera in 1 contro 1, con il coach che decide stop e ripartenza","slalom tra ostacoli con finta","solo piede debole","partita 11 contro 11"],
+["par","Quali sono le due leve dell’adattamento degli esercizi?","Spazio e tempo","Forza e velocità","Peso e altezza","Colore e suono"],
+["par","Quali nuove discipline entrano nella federazione paralimpica?","Calcio amputati e calcio per cerebrolesioni","Calcio a 7 e a 9","Beach soccer e futsal","Solo il futsal paralimpico"],
+["par","Quante nazionali avrà, per la prima volta, la Divisione Calcio Paralimpico?","Due","Una","Tre","Quattro"],
+["par","Qual è l’immagine finale scelta per il corso?","La scena finale del film Invictus","Il gol di Maradona","Il Mondiale 2006","La finale di Champions League"],
 ["fem","Che cosa afferma la Federazione sul «calcio femminile»?","Non si parla più di calcio femminile ma solo di calcio","Che è una disciplina separata","Che ha regole diverse","Che va promosso solo con campionati separati"],
 ["fem","Su oltre 16.000 articoli scientifici sul calcio, quanti riguardano il femminile?","3.242","919","8.000","10.000"],
 ["fem","Quale profilo infortunistico è più frequente nelle calciatrici?","Lesioni severe del ginocchio (LCA quasi doppio) e fratture da stress","Hamstring e inguine","Contusioni muscolari","Distorsioni del polso"],
