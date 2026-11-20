@@ -1,5 +1,18 @@
 var MF={par:["mappa-calcio-paralimpico.html","Calcio paralimpico"],carte:["mappa-carte-federali.html","Carte federali"],reg:["mappa-regolamento-gioco.html","Regolamento di gioco"],med:["mappa-medicina-sport.html","Medicina dello sport"],tec:["mappa-tecnica-tattica.html","Tecnica e tattica"],fis:["mappa-preparazione-fisica.html","Preparazione fisico-atletica"],por:["mappa-portiere.html","Il portiere"],fut:["mappa-futsal.html","Il futsal"],fem:["mappa-calcio-femminile.html","Il calcio femminile"],aia:["mappa-aiac.html","L’AIAC"],saf:["mappa-safeguarding.html","Safeguarding"],psi:["mappa-psicologia-sport.html","Psicologia dello sport"]};
 var QB=[
+["aia","Quale episodio è la scintilla della nascita dell’AIAC?","La sconfitta dell’Italia con la Corea del Nord e la contestazione all’allenatore Fabbri","La sconfitta con la Germania nel 1970","Il calcioscommesse","La vittoria ai Mondiali del 1982"],
+["aia","In quale anno nasce il Fondo di fine carriera?","1975","1970","1981","1990"],
+["aia","Che cosa ha introdotto la legge del 1981?","La disciplina del professionismo sportivo: tecnici e calciatori come lavoratori subordinati","Il Fondo di garanzia","La ripartizione dei diritti televisivi","Il lavoro sportivo nei dilettanti"],
+["aia","In quale anno nasce il Fondo di garanzia?","1990","1975","2001","2015"],
+["aia","Che cosa disciplina la riforma Melandri del 2001?","L’equa ripartizione dei diritti televisivi","Il lavoro sportivo","Le pensioni dei tecnici","Il tesseramento"],
+["aia","Quale decreto ha riformato il lavoro sportivo?","Il D.lgs. 36/2021","La legge 91/1981","Il D.lgs. 39/2021","La legge 366/1973"],
+["aia","Quanti iscritti conta l’AIAC secondo la lezione?","18.000","8.000","30.000","50.000"],
+["aia","Per accedere al Fondo di solidarietà dei dilettanti serve:","essere associati AIAC nell’anno solare in cui è stato firmato l’accordo economico","essere iscritti da almeno cinque anni","avere la licenza UEFA B","avere un contratto professionistico"],
+["aia","Quale quota delle somme richieste ha erogato il Fondo di solidarietà dei dilettanti?","Circa il 45%","Il 100%","Circa il 10%","Circa il 70%"],
+["aia","Che cos’è il Consiglio delle Qualifiche?","Un organo che ascolta e tutela figure come match analyst e osservatori","L’organo disciplinare dell’associazione","Il consiglio dei presidenti regionali","Il collegio dei revisori"],
+["aia","Che cos’è AIAC Service?","Una SRL per corsi digitali, webinar, corsi periferici UEFA C e Licenza D e portale MyAIAC","Un ente del terzo settore","Il fondo di fine carriera","L’ufficio legale dell’associazione"],
+["aia","Dove si svolge la Coach Experience?","Alla Fiera di Rimini","A Coverciano","A Roma","A Milano"],
+["aia","Con quale articolo del regolamento del Settore Tecnico è previsto il corso per allenatore paralimpico?","Con l’art. 30","Con l’art. 22","Con l’art. 41","Con l’art. 16"],
 ["par","Quante ore dura il corso per allenatore paralimpico della DCP?","82 ore","58 ore","24 ore","100 ore"],
 ["par","Come si ripartiscono le ore del corso per allenatore paralimpico?","58 online e 24 in presenza","24 online e 58 in presenza","41 online e 41 in presenza","70 online e 12 in presenza"],
 ["par","Quante ore propedeutiche sono previste per chi non ha una qualifica UEFA?","16","8","24","32"],
