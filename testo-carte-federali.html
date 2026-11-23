@@ -10,7 +10,15 @@ button.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:600}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g2 button{margin:0;text-align:center}
 .card{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;padding:11px 13px;margin:0 0 8px}.card b{display:block}.card span{font-size:.84rem;color:var(--mut)}
 </style>
-<style>section{display:block}h4.a{font-size:1.15rem;text-transform:none;letter-spacing:0;color:var(--a);margin:22px 0 8px}h4.b{font-size:1rem;text-transform:none;letter-spacing:0;color:var(--tx);margin:16px 0 6px}li{list-style:disc;display:list-item;margin-bottom:4px}p{margin:0 0 10px}main{padding-bottom:90px}</style></head><body><main><p class="m">Testo completo del modulo · il pulsante 🗺 in basso apre la mappa</p><section><p>Corso propedeutico FIGC – Mappa di studio (UEFA C) per l&#x27;esame</p>
+<style>section{display:block}h4.a{font-size:1.15rem;text-transform:none;letter-spacing:0;color:var(--a);margin:22px 0 8px}h4.b{font-size:1rem;text-transform:none;letter-spacing:0;color:var(--tx);margin:16px 0 6px}li{list-style:disc;display:list-item;margin-bottom:4px}p{margin:0 0 10px}main{padding-bottom:90px}
+mark.hl{background-color:#ffe869;color:#1b1f24;padding:1px 3px;border-radius:4px}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) mark.hl{background-color:#d4a72c;color:#0f1318}}
+#hl-btn{position:fixed;bottom:74px;left:50%;transform:translateX(-50%);width:auto;padding:10px 18px;background:var(--a);color:#fff;border:none;border-radius:24px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.25);display:none;z-index:999}
+#notes-box{margin-top:32px;padding:14px;background:var(--card);border:1px solid var(--bd);border-radius:12px}
+#notes-list{padding-left:18px;margin:10px 0}
+#notes-list li{margin-bottom:8px;font-size:.92rem}
+.del-hl{display:inline;width:auto;padding:2px 7px;margin-left:6px;font-size:.75rem;color:var(--ko);border-color:var(--bd)}
+</style></head><body><main><p class="m">Testo completo del modulo · il pulsante 🗺 in basso apre la mappa</p><section><p>Corso propedeutico FIGC – Mappa di studio (UEFA C) per l&#x27;esame</p>
 <p>Documento unico di ripasso costruito sulle slide dei 16 PDF del corso: Carte Federali (organizzazione FIGC, tesseramento, accesso al campo, rapporti economici,</p>
 <p>Statuto/NOIF/Giustizia sportiva, Regolamento del Settore Tecnico) e C.U. n.1 del Settore Giovanile e Scolastico 2026/2027.</p>
 <h4 class="b">0. Mappa generale</h4>
@@ -404,4 +412,117 @@ button.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:600}
 <li style="margin-left:14px">Date di raduni e provini (30 novembre 2025, rinnovo 30 settembre 2025) e inizio attività di base (15 ottobre 2025) compaiono in un C.U. 2026/2027: possibili date non aggiornate.</li>
 <li style="margin-left:14px">Importi NASpI/DIS-COLL e soglie sono riferiti al 2023 e 2024: possono essere cambiati.</li>
 <li style="margin-left:14px">Alcune slide del Settore Tecnico sono grafici (ruoli, organi, qualifiche) di cui il testo non è estraibile: se nel corso li hai visti, integrali con gli appunti.</li>
-</ul></section></main><script src="tts.js"></script></body></html>
+</ul></section>
+
+<div id="notes-box">
+  <h4 class="a" style="margin-top:0">📌 I miei punti chiave</h4>
+  <p class="m" id="notes-empty">Seleziona una frase nel testo qui sopra per evidenziarla e salvarla qui.</p>
+  <ul id="notes-list"></ul>
+  <div class="g2" style="margin-top:12px">
+    <button type="button" id="copy-notes">Copia tutto</button>
+    <button type="button" id="clear-notes" style="color:var(--ko)">Svuota</button>
+  </div>
+</div>
+
+<button type="button" id="hl-btn">🖍 Evidenzia e salva</button>
+
+</main>
+
+<script>
+(function(){
+  const KEY='uefac_hl_'+location.pathname;
+  const sec=document.querySelector('main section');
+  const btn=document.getElementById('hl-btn');
+  const list=document.getElementById('notes-list');
+  const empty=document.getElementById('notes-empty');
+  let items=JSON.parse(localStorage.getItem(KEY)||'[]');
+  let lastText='';
+
+  function getSelText(){
+    const s=window.getSelection();
+    if(!s||s.isCollapsed)return '';
+    const t=s.toString().trim().replace(/\s+/g,' ');
+    if(t.length<3)return '';
+    const r=s.getRangeAt(0);
+    return sec.contains(r.commonAncestorContainer)?t:'';
+  }
+
+  document.addEventListener('selectionchange',()=>{
+    const t=getSelText();
+    if(t){lastText=t;btn.style.display='block';}
+    else{setTimeout(()=>{if(!getSelText())btn.style.display='none';},120);}
+  });
+
+  btn.addEventListener('pointerdown',e=>{e.preventDefault();});
+  btn.addEventListener('click',()=>{
+    const t=getSelText()||lastText;
+    if(!t)return;
+    if(!items.some(x=>x.text===t)){
+      items.push({id:Date.now().toString(36),text:t});
+      render();
+    }
+    lastText='';
+    window.getSelection().removeAllRanges();
+    btn.style.display='none';
+  });
+
+  function markAll(){
+    sec.querySelectorAll('mark.hl').forEach(m=>{
+      m.replaceWith(document.createTextNode(m.textContent));
+    });
+    sec.normalize();
+    if(!items.length)return;
+
+    const w=document.createTreeWalker(sec,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    let n;while(n=w.nextNode())nodes.push(n);
+
+    items.forEach(it=>{
+      for(const tn of nodes){
+        const i=tn.nodeValue.indexOf(it.text);
+        if(i!==-1){
+          const rng=document.createRange();
+          rng.setStart(tn,i);
+          rng.setEnd(tn,i+it.text.length);
+          const mk=document.createElement('mark');
+          mk.className='hl';
+          mk.dataset.id=it.id;
+          rng.surroundContents(mk);
+          break;
+        }
+      }
+    });
+  }
+
+  function render(){
+    localStorage.setItem(KEY,JSON.stringify(items));
+    markAll();
+    list.innerHTML='';
+    empty.style.display=items.length?'none':'block';
+    items.forEach(it=>{
+      const li=document.createElement('li');
+      li.textContent=it.text+' ';
+      const del=document.createElement('button');
+      del.type='button';del.className='del-hl';del.textContent='✕';
+      del.onclick=()=>{items=items.filter(x=>x.id!==it.id);render();};
+      li.appendChild(del);
+      list.appendChild(li);
+    });
+  }
+
+  document.getElementById('copy-notes').onclick=()=>{
+    if(!items.length)return;
+    navigator.clipboard?.writeText(items.map(x=>'• '+x.text).join('\n'));
+    const b=document.getElementById('copy-notes'),o=b.textContent;
+    b.textContent='Copiato!';setTimeout(()=>b.textContent=o,1500);
+  };
+
+  document.getElementById('clear-notes').onclick=()=>{
+    if(items.length&&confirm('Cancellare tutte le evidenziazioni?')){items=[];render();}
+  };
+
+  render();
+})();
+</script>
+
+<script src="tts.js"></script></body></html>
