@@ -9,35 +9,56 @@ button{font:inherit;color:var(--tx);background:var(--card);border:1px solid var(
 button.pri{background:var(--a);border-color:var(--a);color:#fff;font-weight:600}button:disabled{opacity:.4}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.g2 button{margin:0;text-align:center}
 .card{display:block;text-decoration:none;color:var(--tx);background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--k,var(--a));border-radius:12px;padding:11px 13px;margin:0 0 8px}.card b{display:block}.card span{font-size:.84rem;color:var(--mut)}
+details.tp{background:var(--card);border:1px solid var(--bd);border-left:5px solid #f5b700;border-radius:12px;margin:0 0 10px;padding:0}
+details.tp>summary{padding:12px 13px;font-weight:600;cursor:pointer}details.tp>summary small{color:var(--mut);font-weight:400}
+.tb{padding:0 13px 12px}.tb ul{margin:0 0 10px;padding-left:18px}.tb li{list-style:disc;display:list-item;margin:0 0 7px}
+.tb li .x{white-space:nowrap;margin-left:6px}.tb li .x a{font-size:.8rem;color:var(--mut);text-decoration:none;border:1px solid var(--bd);border-radius:6px;padding:1px 6px;margin-left:4px}
+.ba{display:flex;flex-wrap:wrap;gap:8px}.ba button,.ba a{width:auto;margin:0;padding:7px 11px;font-size:.88rem;text-decoration:none;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--tx)}
 </style>
 </head><body><main>
 <p><a href="index.html">← Indice</a></p><h1>📒 Il mio foglio</h1>
-<p class="m">Le parole chiave che hai evidenziato nelle mappe, nei testi e nei ripassi. Restano solo su questo telefono. Per evidenziare: seleziona un testo e tocca «★ Evidenzia e salva».</p>
+<p class="m">Le parole chiave che evidenzi finiscono nello spazio del loro argomento (lo stesso titolo dell’indice). Restano solo su questo telefono. Per evidenziare: seleziona un testo e tocca «★ Evidenzia e salva».</p>
 <input id="q" placeholder="Cerca nel foglio…" style="width:100%;padding:11px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;margin:4px 0 10px">
 <div class="g2"><button id="cp">Copia tutto</button><button id="sh">Condividi / esporta</button></div>
 <h3>Aggiungi una nota tua</h3>
+<select id="ns" style="width:100%;padding:11px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;margin-bottom:8px"></select>
 <textarea id="nt" rows="2" placeholder="Scrivi una nota o una parola chiave…" style="width:100%;padding:11px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:inherit"></textarea>
 <button id="ad" style="margin-top:8px">Aggiungi al foglio</button>
 <div id="list"></div>
 <button id="clr" style="margin-top:14px">Cancella tutto il foglio</button>
-<style>.it{background:var(--card);border:1px solid var(--bd);border-left:5px solid #f5b700;border-radius:12px;padding:10px 12px;margin:0 0 8px}.it small{color:var(--mut);display:block;margin-top:4px}.it .ac{display:flex;gap:10px;margin-top:6px}.it .ac button,.it .ac a{width:auto;margin:0;padding:6px 10px;font-size:.85rem;text-decoration:none;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}</style>
 </main>
 <script>
-var K="uc_notes";
+var K="uc_notes",NP="Note personali";
+var T={"carte-federali":"1. Carte federali","regolamento-gioco":"2. Regolamento di gioco","medicina-sport":"3. Medicina dello sport","tecnica-tattica":"4. Tecnica e tattica","preparazione-fisica":"5. Preparazione fisico-atletica","portiere":"6. Il portiere e l’allenatore dei portieri","futsal":"7. Il futsal","calcio-femminile":"8. Il calcio femminile","aiac":"9. L’AIAC, la casa dei tecnici","safeguarding":"10. Safeguarding","psicologia-sport":"11. Psicologia dello sport e il coach","calcio-paralimpico":"12. Calcio paralimpico"};
+var G=[],GI={};
 function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
 function save(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}
 function e(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function slug(p){return (p||"").replace(/^(testo|mappa|ripasso)-/,"").replace(".html","")}
+function tp(x){return T[slug(x.p)]||x.m||NP}
+function ord(k){var m=/^(\d+)\./.exec(k);return m?+m[1]:999}
 function render(){var a=load(),q=document.getElementById("q").value.toLowerCase(),g={},o=[];
-a.forEach(function(x,i){if(q&&(x.t+" "+x.m).toLowerCase().indexOf(q)<0)return;var k=x.m||"Note personali";(g[k]=g[k]||[]).push([x,i])});
-Object.keys(g).sort().forEach(function(k){o.push("<h3>"+e(k)+"</h3>");g[k].forEach(function(p){var x=p[0];o.push('<div class="it"><div>'+e(x.t)+'</div><small>'+(x.k?e(x.k)+" · ":"")+new Date(x.d).toLocaleDateString("it-IT")+'</small><div class="ac">'+(x.p?'<a href="'+e(x.p)+'">Apri la pagina</a>':"")+'<button onclick="ed('+p[1]+')">Modifica</button><button onclick="del('+p[1]+')">Elimina</button></div></div>')})});
+a.forEach(function(x,i){var k=tp(x);if(q&&(x.t+" "+k).toLowerCase().indexOf(q)<0)return;(g[k]=g[k]||[]).push(i)});
+G=Object.keys(g).sort(function(x,y){return ord(x)-ord(y)||x.localeCompare(y)});GI=g;
+G.forEach(function(k,n){var ids=g[k],first=a[ids[0]],lk=(first&&first.p&&/^testo-/.test(first.p))?first.p:(T&&Object.keys(T).filter(function(s){return T[s]===k&&s!=="calcio-paralimpico"}).map(function(s){return"testo-"+s+".html"})[0]||"");
+o.push('<details class="tp" open><summary>'+e(k)+' <small>· '+ids.length+'</small></summary><div class="tb"><ul>');
+ids.forEach(function(i){o.push('<li>'+e(a[i].t)+'<span class="x"><a href="#" onclick="ed('+i+');return false">✎</a><a href="#" onclick="del('+i+');return false">✕</a></span></li>')});
+o.push('</ul><div class="ba"><button onclick="cpT('+n+')">Copia</button><button onclick="shT('+n+')">Condividi</button>'+(lk?'<a href="'+e(lk)+'">Apri il testo</a>':'')+'<button onclick="delT('+n+')">Elimina argomento</button></div></div></details>')});
 document.getElementById("list").innerHTML=o.length?o.join(""):'<p class="m" style="margin-top:14px">Il foglio è vuoto. Apri una mappa, seleziona una parola chiave e tocca «★ Evidenzia e salva».</p>'}
 function del(i){var a=load();a.splice(i,1);save(a);render()}
 function ed(i){var a=load(),v=prompt("Modifica la nota",a[i].t);if(v&&v.trim()){a[i].t=v.trim();save(a);render()}}
-function txt(){var a=load(),g={};a.forEach(function(x){var k=x.m||"Note personali";(g[k]=g[k]||[]).push(x.t)});return Object.keys(g).sort().map(function(k){return"## "+k+"\n"+g[k].map(function(t){return"- "+t}).join("\n")}).join("\n\n")}
+function tT(k,a){return"## "+k+"\n"+GI[k].map(function(i){return"- "+a[i].t}).join("\n")}
+function txt(){var a=load(),all={};a.forEach(function(x,i){var k=tp(x);(all[k]=all[k]||[]).push(x.t)});return Object.keys(all).sort(function(x,y){return ord(x)-ord(y)||x.localeCompare(y)}).map(function(k){return"## "+k+"\n"+all[k].map(function(t){return"- "+t}).join("\n")}).join("\n\n")}
+function copy(t){if(!t){alert("Il foglio è vuoto");return}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){alert("Copiato negli appunti")},function(){alert("Copia non riuscita")})}else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");alert("Copiato negli appunti")}catch(x){alert("Copia non riuscita")}ta.remove()}}
+function share(t,title){if(!t){alert("Il foglio è vuoto");return}if(navigator.share){navigator.share({title:title,text:t}).catch(function(){})}else{var b=new Blob([t],{type:"text/plain"}),u=URL.createObjectURL(b),l=document.createElement("a");l.href=u;l.download="foglio-appunti.txt";document.body.appendChild(l);l.click();l.remove()}}
+function cpT(n){copy(tT(G[n],load()))}
+function shT(n){share(tT(G[n],load()),G[n])}
+function delT(n){var k=G[n],ids=GI[k];if(confirm("Eliminare «"+k+"» con "+ids.length+" elementi?")){var a=load().filter(function(x,i){return ids.indexOf(i)<0});save(a);render()}}
+var sel=document.getElementById("ns");sel.innerHTML=Object.keys(T).map(function(s){return"<option>"+e(T[s])+"</option>"}).join("")+"<option selected>"+NP+"</option>";
 document.getElementById("q").oninput=render;
-document.getElementById("ad").onclick=function(){var v=document.getElementById("nt").value.trim();if(!v)return;var a=load();a.push({t:v,p:"",m:"Note personali",k:"",d:Date.now()});save(a);document.getElementById("nt").value="";render()};
-document.getElementById("cp").onclick=function(){var t=txt();if(!t){alert("Il foglio è vuoto");return}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){alert("Copiato negli appunti")},function(){alert("Copia non riuscita")})}else{var ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");alert("Copiato negli appunti")}catch(x){alert("Copia non riuscita")}ta.remove()}};
-document.getElementById("sh").onclick=function(){var t=txt();if(!t){alert("Il foglio è vuoto");return}if(navigator.share){navigator.share({title:"Il mio foglio – Studio UEFA C",text:t}).catch(function(){})}else{var b=new Blob([t],{type:"text/plain"}),u=URL.createObjectURL(b),l=document.createElement("a");l.href=u;l.download="foglio-appunti.txt";document.body.appendChild(l);l.click();l.remove()}};
+document.getElementById("ad").onclick=function(){var v=document.getElementById("nt").value.trim();if(!v)return;var a=load();a.push({t:v,p:"",m:sel.value,k:"",d:Date.now()});save(a);document.getElementById("nt").value="";render()};
+document.getElementById("cp").onclick=function(){copy(txt())};
+document.getElementById("sh").onclick=function(){share(txt(),"Il mio foglio – Studio UEFA C")};
 document.getElementById("clr").onclick=function(){if(load().length&&confirm("Cancellare tutto il foglio?")){save([]);render()}};
 render();
 </script>
