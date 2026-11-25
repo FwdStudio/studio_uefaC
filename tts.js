@@ -33,7 +33,9 @@ document.addEventListener("visibilitychange",function(){if(!document.hidden&&on)
 })();
 
 (function(){
-var K="uc_notes",pg=(location.pathname.split("/").pop()||"index.html"),tit=document.title.replace(/^(Testo completo|Ripasso audio|Mappa di studio)\s*[–-]\s*/,""),kind=/^testo-/.test(pg)?"Testo":/^ripasso-/.test(pg)?"Ripasso":/^mappa-/.test(pg)?"Mappa":"";
+var K="uc_notes",pg=(location.pathname.split("/").pop()||"index.html"),kind=/^testo-/.test(pg)?"Testo":/^ripasso-/.test(pg)?"Ripasso":/^mappa-/.test(pg)?"Mappa":"";
+var T={"carte-federali":"1. Carte federali","regolamento-gioco":"2. Regolamento di gioco","medicina-sport":"3. Medicina dello sport","tecnica-tattica":"4. Tecnica e tattica","preparazione-fisica":"5. Preparazione fisico-atletica","portiere":"6. Il portiere e l’allenatore dei portieri","futsal":"7. Il futsal","calcio-femminile":"8. Il calcio femminile","aiac":"9. L’AIAC, la casa dei tecnici","safeguarding":"10. Safeguarding","psicologia-sport":"11. Psicologia dello sport e il coach","calcio-paralimpico":"12. Calcio paralimpico"};
+var slug=pg.replace(/^(mappa|testo|ripasso)-/,"").replace(".html",""),tit=T[slug]||document.title.replace(/^(Testo completo|Ripasso audio|Mappa di studio)\s*[–-]\s*/,"");
 function load(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return[]}}
 function save(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}
 var css=document.createElement("style");css.textContent=".hl{background:#ffe066;color:#111;border-radius:3px;padding:0 1px}#hb{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(128px + env(safe-area-inset-bottom,0px));z-index:100;display:none;border:0;border-radius:999px;padding:11px 18px;font:600 15px -apple-system,system-ui,sans-serif;background:#f5b700;color:#111;box-shadow:0 2px 10px rgba(0,0,0,.35)}#ht{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(180px + env(safe-area-inset-bottom,0px));z-index:100;display:none;background:#222;color:#fff;border-radius:10px;padding:8px 12px;font:14px -apple-system,system-ui,sans-serif}";
@@ -45,7 +47,7 @@ var cur=null;
 function inBar(n){while(n){if(n.id==="tb"||n.id==="hb")return true;n=n.parentNode}return false}
 document.addEventListener("selectionchange",function(){var s=window.getSelection();if(!s||s.isCollapsed||!s.rangeCount){if(!cur)b.style.display="none";return}var t=s.toString().replace(/\s+/g," ").trim(),r=s.getRangeAt(0);if(t.length<2||t.length>400||inBar(r.commonAncestorContainer)){b.style.display="none";return}cur={t:t,r:r.cloneRange()};b.style.display="block"});
 function wrap(r){try{if(r.startContainer===r.endContainer&&r.startContainer.nodeType===3){var m=document.createElement("mark");m.className="hl";r.surroundContents(m);return true}}catch(e){}return false}
-function add(){if(!cur)return;var a=load();if(!a.some(function(x){return x.t===cur.t&&x.p===pg})){a.push({t:cur.t,p:pg,m:tit,k:kind,d:Date.now()});save(a);toast("Salvato nel foglio ★")}else toast("Già nel foglio");wrap(cur.r);var s=window.getSelection();if(s)s.removeAllRanges();b.style.display="none";cur=null}
+function add(){if(!cur)return;var a=load();if(!a.some(function(x){return x.t===cur.t&&x.p===pg})){a.push({t:cur.t,p:pg,m:tit,k:kind,d:Date.now()});save(a);toast("Salvato in: "+tit)}else toast("Già nel foglio");wrap(cur.r);var s=window.getSelection();if(s)s.removeAllRanges();b.style.display="none";cur=null}
 b.addEventListener("mousedown",function(e){e.preventDefault()});
 b.addEventListener("touchstart",function(e){e.preventDefault();add()},{passive:false});
 b.addEventListener("click",add);
